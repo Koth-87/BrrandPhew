@@ -2,7 +2,7 @@
 <ModMetaData>
   <name>Brrr and Phew (Continued)</name>
   <packageId>Mlie.BrrandPhew</packageId>
-  <author>BookBurner</author>
+  <author>peldor</author>
   <url>https://github.com/emipa606/BrrandPhew</url>
   <supportedVersions>
     <li>1.1</li>
@@ -19,7 +19,7 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>Update of BookBurners mod
+  <description>Update of peldors mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2000287305
 
 [img]https://i.imgur.com/GYswkZ7.png[/img]
