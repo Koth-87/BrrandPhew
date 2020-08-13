@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Mod Settings -->
+  <Brrr.Name>Brrr and Phew</Brrr.Name>
+  <Brrr.UseBrrr>Aktiviere Brrr (Hypothermia-Reaktion):</Brrr.UseBrrr>
+  <Brrr.UnsafeBrrrSev>Prozentsatz von Hypothermia zum auslösen [Vorgabe 20%]:</Brrr.UnsafeBrrrSev>
+  <Brrr.UnsafeBrrrSevTip>Vorgabe ist [20%]</Brrr.UnsafeBrrrSevTip>
+  <Brrr.UsePhew>Aktiviere Phew (Reaktion auf Herzanfall):</Brrr.UsePhew>
+  <Brrr.UnsafePhewSev>Prozentsatz von Herzinfarkt zum auslösen [Vorgabe 20%]:</Brrr.UnsafePhewSev>
+  <Brrr.UnsafePhewSevTip>Vorgabe ist [20%]</Brrr.UnsafePhewSevTip>
+  <Brrr.UseYuk>Aktiviere Yuk (Reaktion auf Vergiftung):</Brrr.UseYuk>
+  <Brrr.UnsafeYukSev>Prozentsatz von Toxic buildup zum auslösen [Vorgabe 10%]:</Brrr.UnsafeYukSev>
+  <Brrr.UnsafeYukSevTip>Vorgabe ist [10%]</Brrr.UnsafeYukSevTip>
+  <Brrr.UseGasp>Aktiviere Gasp (Reaktion auf Sauerstoffmangel):</Brrr.UseGasp>
+  <Brrr.UnsafeGaspSev>Prozentsatz von Oxygen Starvation zum auslösen [Vorgabe 10%]:</Brrr.UnsafeGaspSev>
+  <Brrr.UnsafeGaspSevTip>Vorgabe ist [10%]</Brrr.UnsafeGaspSevTip>
+  <Brrr.UseOoh>Aktiviere Ooh (Lagerkoller-Reaktion):</Brrr.UseOoh>
+  <Brrr.OohSev>Prozentsatz von Lagerkoller zum auslösen [Vorgabe 20%]:</Brrr.OohSev>
+  <Brrr.OohSevTip>Vorgabe ist [20%]</Brrr.OohSevTip>
+  <Brrr.AllowJoy>Aktiviere Freude während Erholung:</Brrr.AllowJoy>
+  <Brrr.JoySev>Prozentsatz von Entspannung erforderlich [Vorgabe 12.5%]:</Brrr.JoySev>
+  <Brrr.JoySevTip>Vorgabe ist [12.5%]</Brrr.JoySevTip>
+  <Brrr.ApplyAnimals>Aktiviere relevante Reaktionen für Tiere der Kolonie:</Brrr.ApplyAnimals>
+  <!-- Content -->
+  <Brrr.BrrrRecoverSleeping>Schlafen, Genesung (Hypothermia).</Brrr.BrrrRecoverSleeping>
+  <Brrr.BrrrRecoverResting>Erholung, Genesung (Hypothermia).</Brrr.BrrrRecoverResting>
+  <Brrr.PhewRecoverSleeping>Schlafen, Genesung (Herzinfarkt).</Brrr.PhewRecoverSleeping>
+  <Brrr.PhewRecoverResting>Erholung, Genesung (Herzinfarkt).</Brrr.PhewRecoverResting>
+  <Brrr.YukRecoverSleeping>Schlafen, Genesung (Vergiftung).</Brrr.YukRecoverSleeping>
+  <Brrr.YukRecoverResting>Erholung, Genesung (Vergiftung).</Brrr.YukRecoverResting>
+  <Brrr.GaspRecoverSleeping>Schlafen, Genesung (Sauerstoffmangel).</Brrr.GaspRecoverSleeping>
+  <Brrr.GaspRecoverResting>Erholung, Genesung (Sauerstoffmangel).</Brrr.GaspRecoverResting>
+  <Brrr.OohEclipse>Bewundert Eklipse (Lagerkoller)</Brrr.OohEclipse>
+  <Brrr.OohAurora>Bewundert Aurora (Lagerkoller)</Brrr.OohAurora>
+  <Brrr.OohStarGazing>Beobachtet den Himmel (Lagerkoller)</Brrr.OohStarGazing>
+  <Brrr.OohSunrise>Beobachtet den Sonnenaufgang (Lagerkoller)</Brrr.OohSunrise>
+  <Brrr.OohSunset>Beobachted den Sonnenuntergang (Lagerkoller)</Brrr.OohSunset>
+  <Brrr.OohClouds>Schaut den Wolken zu (Lagerkoller)</Brrr.OohClouds>
+</LanguageData>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Think tree -->
+  <ThinkTreeDef>
+    <defName>PhewCheck</defName>
+    <insertTag>Humanlike_PreMain</insertTag>
+    <insertPriority>98</insertPriority>
+    <thinkRoot Class="Brrr.ThinkNode_CanPhew">
+      <subNodes>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="Brrr.JobGiver_Phew" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+  <!-- job -->
+  <JobDef>
+    <defName>Brrr_PhewRecovery</defName>
+    <driverClass>Brrr.JobDriver_PhewRecovery</driverClass>
+    <reportString>recovering from heatstroke.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+  </JobDef>
+  <!-- Animals -->
+  <ThinkTreeDef>
+    <defName>PhewCheckAnimal</defName>
+    <insertTag>Animal_PreMain</insertTag>
+    <insertPriority>98</insertPriority>
+    <thinkRoot Class="Brrr.ThinkNode_AnimalCanPhew">
+      <subNodes>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="Brrr.JobGiver_AnimalPhew" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+</Defs>

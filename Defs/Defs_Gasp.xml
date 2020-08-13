@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Think tree -->
+  <ThinkTreeDef>
+    <defName>GaspCheck</defName>
+    <insertTag>Humanlike_PreMain</insertTag>
+    <insertPriority>95</insertPriority>
+    <thinkRoot Class="Brrr.ThinkNode_CanGasp">
+      <subNodes>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="Brrr.JobGiver_Gasp" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+  <!-- job -->
+  <JobDef>
+    <defName>Brrr_GaspRecovery</defName>
+    <driverClass>Brrr.JobDriver_GaspRecovery</driverClass>
+    <reportString>recovering from oxygen starvation.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+  </JobDef>
+  <!-- Animals -->
+  <ThinkTreeDef>
+    <defName>GaspCheckAnimal</defName>
+    <insertTag>Animal_PreMain</insertTag>
+    <insertPriority>95</insertPriority>
+    <thinkRoot Class="Brrr.ThinkNode_AnimalCanGasp">
+      <subNodes>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="Brrr.JobGiver_AnimalGasp" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+</Defs>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Think tree -->
+  <ThinkTreeDef>
+    <defName>BrrrCheck</defName>
+    <insertTag>Humanlike_PreMain</insertTag>
+    <insertPriority>99</insertPriority>
+    <thinkRoot Class="Brrr.ThinkNode_CanBrrr">
+      <subNodes>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="Brrr.JobGiver_Brrr" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+  <!-- Job Def -->
+  <JobDef>
+    <defName>Brrr_BrrrRecovery</defName>
+    <driverClass>Brrr.JobDriver_BrrrRecovery</driverClass>
+    <reportString>recovering from hypothermia.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+  </JobDef>
+  <!-- Animals -->
+  <ThinkTreeDef>
+    <defName>BrrrCheckAnimal</defName>
+    <insertTag>Animal_PreMain</insertTag>
+    <insertPriority>99</insertPriority>
+    <thinkRoot Class="Brrr.ThinkNode_AnimalCanBrrr">
+      <subNodes>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="Brrr.JobGiver_AnimalBrrr" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+</Defs>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Think tree -->
+  <ThinkTreeDef>
+    <defName>OohCheck</defName>
+    <insertTag>Humanlike_PreMain</insertTag>
+    <insertPriority>96</insertPriority>
+    <thinkRoot Class="Brrr.ThinkNode_CanOoh">
+      <subNodes>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="Brrr.JobGiver_Ooh" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+  <!-- job -->
+  <JobDef>
+    <defName>Brrr_Skygaze</defName>
+    <driverClass>Brrr.JobDriver_OohSkygaze</driverClass>
+    <reportString>skygazing (cabin fever).</reportString>
+    <joyDuration>4000</joyDuration>
+    <joyGainRate>0.5</joyGainRate>
+    <joyKind>Meditative</joyKind>
+  </JobDef>
+  <JobDef>
+    <defName>Brrr_GoForWalk</defName>
+    <driverClass>Brrr.JobDriver_OohGoForWalk</driverClass>
+    <reportString>going for a walk (cabin fever).</reportString>
+    <joyDuration>6000</joyDuration>
+    <joyGainRate>0.5</joyGainRate>
+    <joyKind>Meditative</joyKind>
+  </JobDef>
+</Defs>

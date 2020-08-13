@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Think tree -->
+  <ThinkTreeDef>
+    <defName>YukCheck</defName>
+    <insertTag>Humanlike_PreMain</insertTag>
+    <insertPriority>97</insertPriority>
+    <thinkRoot Class="Brrr.ThinkNode_CanYuk">
+      <subNodes>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="Brrr.JobGiver_Yuk" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+  <!-- job -->
+  <JobDef>
+    <defName>Brrr_YukRecovery</defName>
+    <driverClass>Brrr.JobDriver_YukRecovery</driverClass>
+    <reportString>recovering from toxic buildup.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+  </JobDef>
+  <!-- Animals -->
+  <ThinkTreeDef>
+    <defName>YukCheckAnimal</defName>
+    <insertTag>Animal_PreMain</insertTag>
+    <insertPriority>97</insertPriority>
+    <thinkRoot Class="Brrr.ThinkNode_AnimalCanYuk">
+      <subNodes>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="Brrr.JobGiver_AnimalYuk" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+</Defs>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Mod Settings -->
+  <Brrr.Name>Brrr and Phew</Brrr.Name>
+  <Brrr.UseBrrr>Enable Brrr (Hypothermia reaction):</Brrr.UseBrrr>
+  <Brrr.UnsafeBrrrSev>Percentage of Hypothermia to trigger [default 20%]:</Brrr.UnsafeBrrrSev>
+  <Brrr.UnsafeBrrrSevTip>Default is [20%]</Brrr.UnsafeBrrrSevTip>
+  <Brrr.UsePhew>Enable Phew (Heatstroke reaction):</Brrr.UsePhew>
+  <Brrr.UnsafePhewSev>Percentage of Heatstroke to trigger [default 20%]:</Brrr.UnsafePhewSev>
+  <Brrr.UnsafePhewSevTip>Default is [20%]</Brrr.UnsafePhewSevTip>
+  <Brrr.UseYuk>Enable Yuk (Toxic buildup reaction):</Brrr.UseYuk>
+  <Brrr.UnsafeYukSev>Percentage of Toxic buildup to trigger [default 10%]:</Brrr.UnsafeYukSev>
+  <Brrr.UnsafeYukSevTip>Default is [10%]</Brrr.UnsafeYukSevTip>
+  <Brrr.UseGasp>Enable Gasp (Oxygen Starvation reaction):</Brrr.UseGasp>
+  <Brrr.UnsafeGaspSev>Percentage of Oxygen Starvation to trigger [default 10%]:</Brrr.UnsafeGaspSev>
+  <Brrr.UnsafeGaspSevTip>Default is [10%]</Brrr.UnsafeGaspSevTip>
+  <Brrr.UseOoh>Enable Ooh (Cabin Fever reaction):</Brrr.UseOoh>
+  <Brrr.OohSev>Percentage of Cabin Fever to trigger [default 20%]:</Brrr.OohSev>
+  <Brrr.OohSevTip>Default is [20%]</Brrr.OohSevTip>
+  <Brrr.AllowJoy>Allow Joy activities during recovery:</Brrr.AllowJoy>
+  <Brrr.JoySev>Percentage when joy is required [default 12.5%]:</Brrr.JoySev>
+  <Brrr.JoySevTip>Default is [12.5%]</Brrr.JoySevTip>
+  <Brrr.ApplyAnimals>Enable relevant reactions for colony animals:</Brrr.ApplyAnimals>
+  <!-- Content -->
+  <Brrr.BrrrRecoverSleeping>sleeping, recovery (hypothermia).</Brrr.BrrrRecoverSleeping>
+  <Brrr.BrrrRecoverResting>resting, recovery (hypothermia).</Brrr.BrrrRecoverResting>
+  <Brrr.PhewRecoverSleeping>sleeping, recovery (heatstroke).</Brrr.PhewRecoverSleeping>
+  <Brrr.PhewRecoverResting>resting, recovery (heatstroke).</Brrr.PhewRecoverResting>
+  <Brrr.YukRecoverSleeping>sleeping, recovery (toxic buildup).</Brrr.YukRecoverSleeping>
+  <Brrr.YukRecoverResting>resting, recovery (toxic buildup).</Brrr.YukRecoverResting>
+  <Brrr.GaspRecoverSleeping>sleeping, recovery (oxygen starvation).</Brrr.GaspRecoverSleeping>
+  <Brrr.GaspRecoverResting>resting, recovery (oxygen starvation).</Brrr.GaspRecoverResting>
+  <Brrr.OohEclipse>Watching Eclipse (Cabin Fever)</Brrr.OohEclipse>
+  <Brrr.OohAurora>Watching Aurora (Cabin Fever)</Brrr.OohAurora>
+  <Brrr.OohStarGazing>Stargazing (Cabin Fever)</Brrr.OohStarGazing>
+  <Brrr.OohSunrise>Watching Sunrise (Cabin Fever)</Brrr.OohSunrise>
+  <Brrr.OohSunset>Watching Sunset (Cabin Fever)</Brrr.OohSunset>
+  <Brrr.OohClouds>CloudWatching (Cabin Fever)</Brrr.OohClouds>
+</LanguageData>

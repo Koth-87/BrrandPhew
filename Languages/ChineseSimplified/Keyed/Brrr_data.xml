@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Mod Settings -->
+  <Brrr.Name>Brrr and Phew</Brrr.Name>
+  <Brrr.UseBrrr>启用Brrr（体温过低反应）：</Brrr.UseBrrr>
+  <Brrr.UnsafeBrrrSev>引发体温过低的百分比[默认20％]：</Brrr.UnsafeBrrrSev>
+  <Brrr.UnsafeBrrrSevTip>默认值为[20％]</Brrr.UnsafeBrrrSevTip>
+  <Brrr.UsePhew>启用Phew（中暑反应）：</Brrr.UsePhew>
+  <Brrr.UnsafePhewSev>触发中暑的百分比[默认20％]：</Brrr.UnsafePhewSev>
+  <Brrr.UnsafePhewSevTip>默认值为[20%]</Brrr.UnsafePhewSevTip>
+  <Brrr.UseYuk>启用Yuk（毒性累积反应）：</Brrr.UseYuk>
+  <Brrr.UnsafeYukSev>触发有毒物质累积的百分比[默认10％]：</Brrr.UnsafeYukSev>
+  <Brrr.UnsafeYukSevTip>默认值为[10％]</Brrr.UnsafeYukSevTip>
+  <Brrr.UseGasp>启用Gasp（缺氧反应）：</Brrr.UseGasp>
+  <Brrr.UnsafeGaspSev>触发缺氧百分比[默认10％]：</Brrr.UnsafeGaspSev>
+  <Brrr.UnsafeGaspSevTip>默认值为[10％]</Brrr.UnsafeGaspSevTip>
+  <Brrr.UseOoh>启用Ooh（幽居病反应）：</Brrr.UseOoh>
+  <Brrr.OohSev>触发幽居病百分比[默认20％]：</Brrr.OohSev>
+  <Brrr.OohSevTip>默认值为[20％]</Brrr.OohSevTip>
+  <Brrr.AllowJoy>恢复期间允许娱乐活动：</Brrr.AllowJoy>
+  <Brrr.JoySev>需要娱乐时所占的百分比[默认为12.5％]：</Brrr.JoySev>
+  <Brrr.JoySevTip>默认值为[12.5％]</Brrr.JoySevTip>
+  <Brrr.ApplyAnimals>启用殖民地动物的相关反应：</Brrr.ApplyAnimals>
+  <!-- Content -->
+  <Brrr.BrrrRecoverSleeping>睡眠，恢复（体温过低）。</Brrr.BrrrRecoverSleeping>
+  <Brrr.BrrrRecoverResting>休息，恢复（体温过低）。</Brrr.BrrrRecoverResting>
+  <Brrr.PhewRecoverSleeping>睡眠，恢复（中暑）。</Brrr.PhewRecoverSleeping>
+  <Brrr.PhewRecoverResting>休息，恢复（中暑）。</Brrr.PhewRecoverResting>
+  <Brrr.YukRecoverSleeping>睡眠，恢复（毒性累积）。</Brrr.YukRecoverSleeping>
+  <Brrr.YukRecoverResting>休息，恢复（毒性累积）。</Brrr.YukRecoverResting>
+  <Brrr.GaspRecoverSleeping>睡眠，恢复（缺氧）。</Brrr.GaspRecoverSleeping>
+  <Brrr.GaspRecoverResting>休息，恢复（缺氧）。</Brrr.GaspRecoverResting>
+  <Brrr.OohEclipse>观看日食（幽居病）</Brrr.OohEclipse>
+  <Brrr.OohAurora>观看极光（幽居病）</Brrr.OohAurora>
+  <Brrr.OohStarGazing>凝视星空（幽居病）</Brrr.OohStarGazing>
+  <Brrr.OohSunrise>观看日出（幽居病）</Brrr.OohSunrise>
+  <Brrr.OohSunset>观看日落（幽居病）</Brrr.OohSunset>
+  <Brrr.OohClouds>观看云彩（幽居病）</Brrr.OohClouds>
+</LanguageData>
