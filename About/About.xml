@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Brrr and Phew (Continued)</name>
   <packageId>Mlie.BrrandPhew</packageId>
@@ -19,23 +19,26 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>Update of peldors mod
+  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+Update of peladors mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2000287305
 
-[img]https://i.imgur.com/GYswkZ7.png[/img]
+[img]https://i.imgur.com/7Gzt3Rg.png[/img]
 
-Support-chat:
-https://invite.gg/mlie
-
-Non-steam version:
-https://github.com/emipa606/BrrandPhew
+[table]
+	[tr]
+		[td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
+		[td][url=https://github.com/emipa606/BrrandPhew][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+	[/tr]
+[/table]
 	
---- Original Description ---
-Overview
+[img]https://i.imgur.com/NOW7jU1.png[/img]
+
+[h1]Overview[/h1] V1.1
 
 Colony AI to help avoid negative effects of hypothermia, heatstroke, toxic buildup and cabin fever.
 
-Details
+[h1]Details[/h1]
 
 The vanilla game reacts to hypothermia and heatstroke only when a colonist reaches the initial injury stage or severe aspect of those conditions. This occurs at 35% buildup.
 
@@ -53,11 +56,11 @@ Similarly "Yuk", allows you to avoid the effects of Toxic buildup. The recovery 
 
 The mod will allow for food and joy (optional and if relevant) that has the capability to interrupt the recovery cycle temporarily and also will stagger activity as a result of when these needs need to be met.
 
-Animals
+[h1]Animals[/h1]
 
 Colony animals will also mirror reactive behaviour to relevant environmental situations. (Includes "Brrr", "Phew" and "Yuk"). Just ensure that they have a suitable place that they can retreat to as part of their area restrictions and pathing so that they can respond. Note if set to follow a master when trained in obedience this will override their response.
 
-Mod options
+[h1]Mod options[/h1]
 
 Allows you to turn the AI-behaviour on and off for each condition as well as set the level at which recovery is initiated. (See screen example above).
 
@@ -65,24 +68,37 @@ Option to decide if joy activities are allowable during recovery periods and at 
 
 Option to enable/disable animal mirrored behaviour for relevant reactions.
 
-Mod details
+[h1]Mod details[/h1]
 
 Can be added and removed from save games as required (uses only thought and job behaviour).
 
 Does not use mental breaks so compatible with psychology related mods.
 
-Compatibility
-*** Subject to conversion ***
+[h1]Compatibility[/h1] *** Subject to conversion ***
 
 "Gasp" provides support similarly to Yuk as a common sense reaction to the mod "More Events": Heavy air event.
 
 Multiplayer support - Beta
 
 
-Credits
+[h1]Credits[/h1]
 
 Chinese (Simplified) translation - 南北
 German Translation - Trunken
 
-(CC BY-NC-SA 4.0)</description>
+
+(CC BY-NC-SA 4.0)
+
+
+[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[/list]
+</description>
 </ModMetaData>
+
