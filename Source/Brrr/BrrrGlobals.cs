@@ -75,8 +75,7 @@ namespace Brrr
                 }
 
                 var room = chkcell.GetRoom(map);
-                var flag = room != null && room.isPrisonCell;
-                return pawn.IsPrisoner == flag;
+                return pawn.IsPrisoner == (room != null && room.IsPrisonCell);
             }
 
             RCellFinder.TryFindRandomCellNearWith(root, baseValidator, map, out var cell);

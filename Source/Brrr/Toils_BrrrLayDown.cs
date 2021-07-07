@@ -104,12 +104,12 @@ namespace Brrr
                 {
                     if (curDriver2.asleep)
                     {
-                        MoteMaker.ThrowMetaIcon(actor2.Position, actor2.Map, ThingDefOf.Mote_SleepZ);
+                        FleckMaker.ThrowMetaIcon(actor2.Position, actor2.Map, FleckDefOf.SleepZ);
                     }
 
                     if (gainRestAndHealth && actor2.health.hediffSet.GetNaturallyHealingInjuredParts().Any())
                     {
-                        MoteMaker.ThrowMetaIcon(actor2.Position, actor2.Map, ThingDefOf.Mote_HealingCross);
+                        FleckMaker.ThrowMetaIcon(actor2.Position, actor2.Map, FleckDefOf.HealingCross);
                     }
                 }
 
