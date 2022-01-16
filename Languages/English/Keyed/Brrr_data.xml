@@ -21,6 +21,7 @@
   <Brrr.JoySev>Percentage when joy is required [default 12.5%]:</Brrr.JoySev>
   <Brrr.JoySevTip>Default is [12.5%]</Brrr.JoySevTip>
   <Brrr.ApplyAnimals>Enable relevant reactions for colony animals:</Brrr.ApplyAnimals>
+  <Brrr.AllowUnsafeAreas>Allow recovery in unsafe areas:</Brrr.AllowUnsafeAreas>
   <!-- Content -->
   <Brrr.BrrrRecoverSleeping>sleeping, recovery (hypothermia).</Brrr.BrrrRecoverSleeping>
   <Brrr.BrrrRecoverResting>resting, recovery (hypothermia).</Brrr.BrrrRecoverResting>

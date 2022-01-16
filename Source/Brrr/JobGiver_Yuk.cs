@@ -58,17 +58,20 @@ public class JobGiver_Yuk : ThinkNode_JobGiver
             return null;
         }
 
-        Thing BrrrBed = null;
-        var FindBed = RestUtility.FindBedFor(pawn, pawn, false, true);
+        Thing YukBed = null;
+        Thing FindBed = Settings.AllowUnsafeAreas
+            ? RestUtility.FindBedFor(pawn)
+            : RestUtility.FindBedFor(pawn, pawn, false, true);
+
         if (FindBed != null && FindBed.Position.Roofed(pawn.Map) &&
             pawn.ComfortableTemperatureRange().Includes(FindBed.GetRoom().Temperature))
         {
-            BrrrBed = FindBed;
+            YukBed = FindBed;
         }
 
-        if (BrrrBed != null)
+        if (YukBed != null)
         {
-            return new Job(BrrrJobDef.Brrr_YukRecovery, BrrrBed);
+            return new Job(BrrrJobDef.Brrr_YukRecovery, YukBed);
         }
 
         var tempRange = pawn.ComfortableTemperatureRange();

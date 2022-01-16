@@ -31,6 +31,8 @@ public class Settings : ModSettings
 
     public static bool ApplyAnimals = true;
 
+    public static bool AllowUnsafeAreas = true;
+
     public void DoWindowContents(Rect canvas)
     {
         var listing_Standard = new Listing_Standard
@@ -70,6 +72,8 @@ public class Settings : ModSettings
         JoySev = listing_Standard.Slider(JoySev, 5f, 25f);
         listing_Standard.Gap(10f);
         listing_Standard.CheckboxLabeled("Brrr.ApplyAnimals".Translate(), ref ApplyAnimals);
+        listing_Standard.Gap(10f);
+        listing_Standard.CheckboxLabeled("Brrr.AllowUnsafeAreas".Translate(), ref AllowUnsafeAreas);
         listing_Standard.Gap(2f);
         listing_Standard.End();
     }
@@ -90,5 +94,6 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref AllowJoy, "AllowJoy", true);
         Scribe_Values.Look(ref JoySev, "JoySev", 12.5f);
         Scribe_Values.Look(ref ApplyAnimals, "ApplyAnimals", true);
+        Scribe_Values.Look(ref AllowUnsafeAreas, "AllowUnsafeAreas", true);
     }
 }

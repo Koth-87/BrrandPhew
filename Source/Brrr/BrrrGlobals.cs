@@ -1,3 +1,4 @@
+using System.Linq;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -34,6 +35,11 @@ public class BrrrGlobals
                 return false;
             }
 
+            if (!Settings.AllowUnsafeAreas && !r.Cells.Any(vec3 => vec3.InAllowedArea(traverseParms.pawn)))
+            {
+                return false;
+            }
+
             foundReg = r;
             return true;
         }
@@ -66,13 +72,18 @@ public class BrrrGlobals
                 return false;
             }
 
+            if (!Settings.AllowUnsafeAreas && !chkcell.InAllowedArea(pawn))
+            {
+                return false;
+            }
+
             if (!pawn.CanReserveAndReach(chkcell, PathEndMode.OnCell, Danger.None))
             {
                 return false;
             }
 
             var room = chkcell.GetRoom(map);
-            return pawn.IsPrisoner == (room != null && room.IsPrisonCell);
+            return pawn.IsPrisoner == room is { IsPrisonCell: true };
         }
 
         RCellFinder.TryFindRandomCellNearWith(root, baseValidator, map, out var cell);
