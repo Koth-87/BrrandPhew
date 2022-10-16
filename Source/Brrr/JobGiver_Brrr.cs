@@ -76,12 +76,7 @@ public class JobGiver_Brrr : ThinkNode_JobGiver
         var tempRange = pawn.ComfortableTemperatureRange();
         var region = BrrrGlobals.BrrrClosestRegionWithinTemperatureRange(pawn.Position, pawn.Map, tempRange,
             TraverseParms.For(pawn));
-        if (region != null)
-        {
-            return BrrrGlobals.GenNewRRJob(BrrrJobDef.Brrr_BrrrRecovery, region);
-        }
-
-        return null;
+        return region != null ? BrrrGlobals.GenNewRRJob(BrrrJobDef.Brrr_BrrrRecovery, region) : null;
     }
 
     [DefOf]

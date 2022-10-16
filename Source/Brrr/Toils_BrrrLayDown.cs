@@ -1,4 +1,3 @@
-using System.Linq;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -60,9 +59,7 @@ public static class Toils_BrrrLayDown
             actor2.GainComfortFromCellIfPossible();
             if (!curDriver2.asleep)
             {
-                if (canSleep &&
-                    (actor2.needs.rest != null &&
-                        actor2.needs.rest.CurLevel < RestUtility.FallAsleepMaxLevel(actor2) || curJob.forceSleep))
+                if (canSleep && (actor2.needs.rest != null && RestUtility.CanFallAsleep(actor2) || curJob.forceSleep))
                 {
                     curDriver2.asleep = true;
                 }
@@ -71,8 +68,7 @@ public static class Toils_BrrrLayDown
             {
                 curDriver2.asleep = false;
             }
-            else if ((actor2.needs.rest == null ||
-                      actor2.needs.rest.CurLevel >= RestUtility.WakeThreshold(actor2)) && !curJob.forceSleep)
+            else if ((actor2.needs.rest == null || !RestUtility.CanFallAsleep(actor2)) && !curJob.forceSleep)
             {
                 curDriver2.asleep = false;
             }
@@ -108,7 +104,7 @@ public static class Toils_BrrrLayDown
                 }
             }
 
-            if (actor2.ownership != null && building_Bed != null && !building_Bed.Medical &&
+            if (actor2.ownership != null && building_Bed is { Medical: false } &&
                 !building_Bed.OwnersForReading.Contains(actor2))
             {
                 if (actor2.Downed)

@@ -2,6 +2,7 @@
 <LanguageData>
   <!-- Mod Settings -->
   <Brrr.Name>Brrr and Phew</Brrr.Name>
+  <Brrr.CurrentModVersion>Installed mod-version: {0}</Brrr.CurrentModVersion>
   <Brrr.UseBrrr>Enable Brrr (Hypothermia reaction):</Brrr.UseBrrr>
   <Brrr.UnsafeBrrrSev>Percentage of Hypothermia to trigger [default 20%]:</Brrr.UnsafeBrrrSev>
   <Brrr.UnsafeBrrrSevTip>Default is [20%]</Brrr.UnsafeBrrrSevTip>

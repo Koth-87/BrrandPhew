@@ -23,12 +23,7 @@ public class JobDriver_BrrrRecovery : JobDriver
         var localJob = job;
         var sleepingSlotsCount = Bed.SleepingSlotsCount;
         var stackCount = 0;
-        if (!localPawn.Reserve(target, localJob, sleepingSlotsCount, stackCount, null, errorOnFailed))
-        {
-            return false;
-        }
-
-        return true;
+        return localPawn.Reserve(target, localJob, sleepingSlotsCount, stackCount, null, errorOnFailed);
     }
 
     public override bool CanBeginNowWhileLyingDown()
@@ -54,11 +49,6 @@ public class JobDriver_BrrrRecovery : JobDriver
 
     public override string GetReport()
     {
-        if (asleep)
-        {
-            return "Brrr.BrrrRecoverSleeping".Translate();
-        }
-
-        return "Brrr.BrrrRecoverResting".Translate();
+        return asleep ? "Brrr.BrrrRecoverSleeping".Translate() : "Brrr.BrrrRecoverResting".Translate();
     }
 }

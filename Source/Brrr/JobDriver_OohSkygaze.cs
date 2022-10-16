@@ -35,12 +35,7 @@ public class JobDriver_OohSkygaze : JobDriver
             var needs2 = actor.needs;
             var num = needs2 != null ? new float?(needs2.food.CurLevelPercentage) : null;
             var percentageThreshHungry = actor.needs.food.PercentageThreshHungry;
-            if ((num.GetValueOrDefault() < percentageThreshHungry) & (num != null))
-            {
-                return true;
-            }
-
-            return false;
+            return (num.GetValueOrDefault() < percentageThreshHungry) & (num != null);
         });
         yield return gaze;
     }
@@ -68,11 +63,6 @@ public class JobDriver_OohSkygaze : JobDriver
             return "Brrr.OohClouds".Translate();
         }
 
-        if (GenLocalDate.DayPercent(pawn) < 0.5f)
-        {
-            return "Brrr.OohSunrise".Translate();
-        }
-
-        return "Brrr.OohSunset".Translate();
+        return GenLocalDate.DayPercent(pawn) < 0.5f ? "Brrr.OohSunrise".Translate() : "Brrr.OohSunset".Translate();
     }
 }
