@@ -40,9 +40,9 @@ public class JobGiver_Phew : ThinkNode_JobGiver
             return null;
         }
 
-        if (pawn.CurJobDef == BrrrJobDef.Brrr_BrrrRecovery || pawn.CurJobDef == BrrrJobDef.Brrr_GaspRecovery ||
-            pawn.CurJobDef == BrrrJobDef.Brrr_Skygaze || pawn.CurJobDef == BrrrJobDef.Brrr_GoForWalk ||
-            pawn.CurJobDef == BrrrJobDef.Brrr_PhewRecovery || pawn.CurJobDef == BrrrJobDef.Brrr_YukRecovery)
+        if (pawn.CurJobDef == BrrrJobDefOf.Brrr_BrrrRecovery || pawn.CurJobDef == BrrrJobDefOf.Brrr_GaspRecovery ||
+            pawn.CurJobDef == BrrrJobDefOf.Brrr_Skygaze || pawn.CurJobDef == BrrrJobDefOf.Brrr_GoForWalk ||
+            pawn.CurJobDef == BrrrJobDefOf.Brrr_PhewRecovery || pawn.CurJobDef == BrrrJobDefOf.Brrr_YukRecovery)
         {
             return null;
         }
@@ -68,28 +68,12 @@ public class JobGiver_Phew : ThinkNode_JobGiver
 
         if (BrrrBed != null)
         {
-            return new Job(BrrrJobDef.Brrr_PhewRecovery, BrrrBed);
+            return new Job(BrrrJobDefOf.Brrr_PhewRecovery, BrrrBed);
         }
 
         var tempRange = pawn.ComfortableTemperatureRange();
         var region = BrrrGlobals.BrrrClosestRegionWithinTemperatureRange(pawn.Position, pawn.Map, tempRange,
             TraverseParms.For(pawn));
-        return region != null ? new Job(BrrrJobDef.Brrr_PhewRecovery, region.RandomCell) : null;
-    }
-
-    [DefOf]
-    public static class BrrrJobDef
-    {
-        public static JobDef Brrr_BrrrRecovery;
-
-        public static JobDef Brrr_GaspRecovery;
-
-        public static JobDef Brrr_PhewRecovery;
-
-        public static JobDef Brrr_YukRecovery;
-
-        public static JobDef Brrr_Skygaze;
-
-        public static JobDef Brrr_GoForWalk;
+        return region != null ? new Job(BrrrJobDefOf.Brrr_PhewRecovery, region.RandomCell) : null;
     }
 }

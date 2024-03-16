@@ -54,9 +54,9 @@ public class JobGiver_Ooh : ThinkNode_JobGiver
             return null;
         }
 
-        if (pawn.CurJobDef == BrrrJobDef.Brrr_BrrrRecovery || pawn.CurJobDef == BrrrJobDef.Brrr_GaspRecovery ||
-            pawn.CurJobDef == BrrrJobDef.Brrr_Skygaze || pawn.CurJobDef == BrrrJobDef.Brrr_GoForWalk ||
-            pawn.CurJobDef == BrrrJobDef.Brrr_PhewRecovery || pawn.CurJobDef == BrrrJobDef.Brrr_YukRecovery)
+        if (pawn.CurJobDef == BrrrJobDefOf.Brrr_BrrrRecovery || pawn.CurJobDef == BrrrJobDefOf.Brrr_GaspRecovery ||
+            pawn.CurJobDef == BrrrJobDefOf.Brrr_Skygaze || pawn.CurJobDef == BrrrJobDefOf.Brrr_GoForWalk ||
+            pawn.CurJobDef == BrrrJobDefOf.Brrr_PhewRecovery || pawn.CurJobDef == BrrrJobDefOf.Brrr_YukRecovery)
         {
             return null;
         }
@@ -109,7 +109,7 @@ public class JobGiver_Ooh : ThinkNode_JobGiver
         Job OohJob;
         if (BrrrGlobals.GenRnd100() <= 45)
         {
-            OohJob = new Job(BrrrJobDef.Brrr_GoForWalk, OohWalkDests[0])
+            OohJob = new Job(BrrrJobDefOf.Brrr_GoForWalk, OohWalkDests[0])
             {
                 targetQueueA = new List<LocalTargetInfo>()
             };
@@ -122,7 +122,7 @@ public class JobGiver_Ooh : ThinkNode_JobGiver
         }
         else
         {
-            OohJob = new Job(BrrrJobDef.Brrr_Skygaze, OohStarGazeDest);
+            OohJob = new Job(BrrrJobDefOf.Brrr_Skygaze, OohStarGazeDest);
         }
 
         return OohJob;
@@ -130,16 +130,6 @@ public class JobGiver_Ooh : ThinkNode_JobGiver
 
     public static bool TryFindOohCell(IntVec3 root, Pawn searcher, out IntVec3 result)
     {
-        bool cellValidator(IntVec3 c)
-        {
-            return !c.Roofed(searcher.Map) && !c.GetTerrain(searcher.Map).avoidWander;
-        }
-
-        bool validator(Region r)
-        {
-            return r.Room.PsychologicallyOutdoors && r.TryFindRandomCellInRegion(cellValidator, out var unused);
-        }
-
         var traverseParms = TraverseParms.For(searcher);
         if (CellFinder.TryFindClosestRegionWith(root.GetRegion(searcher.Map), traverseParms, validator, 300,
                 out var result2))
@@ -150,6 +140,16 @@ public class JobGiver_Ooh : ThinkNode_JobGiver
 
         result = root;
         return false;
+
+        bool cellValidator(IntVec3 c)
+        {
+            return !c.Roofed(searcher.Map) && !c.GetTerrain(searcher.Map).avoidWander;
+        }
+
+        bool validator(Region r)
+        {
+            return r.Room.PsychologicallyOutdoors && r.TryFindRandomCellInRegion(cellValidator, out var unused);
+        }
     }
 
     public static bool TryFindOohWalkPath(Pawn pawn, IntVec3 root, out List<IntVec3> result)
@@ -233,21 +233,5 @@ public class JobGiver_Ooh : ThinkNode_JobGiver
         list.Add(root);
         result = list;
         return true;
-    }
-
-    [DefOf]
-    public static class BrrrJobDef
-    {
-        public static JobDef Brrr_BrrrRecovery;
-
-        public static JobDef Brrr_GaspRecovery;
-
-        public static JobDef Brrr_PhewRecovery;
-
-        public static JobDef Brrr_YukRecovery;
-
-        public static JobDef Brrr_Skygaze;
-
-        public static JobDef Brrr_GoForWalk;
     }
 }

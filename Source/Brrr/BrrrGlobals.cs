@@ -16,12 +16,15 @@ public class BrrrGlobals
             return null;
         }
 
+        Region foundReg = null;
+
+        RegionTraverser.BreadthFirstTraverse(region, entryCondition, regionProcessor, 9999, traversableRegionTypes);
+        return foundReg;
+
         bool entryCondition(Region from, Region r)
         {
             return r.Allows(traverseParms, false);
         }
-
-        Region foundReg = null;
 
         bool regionProcessor(Region r)
         {
@@ -43,13 +46,13 @@ public class BrrrGlobals
             foundReg = r;
             return true;
         }
-
-        RegionTraverser.BreadthFirstTraverse(region, entryCondition, regionProcessor, 9999, traversableRegionTypes);
-        return foundReg;
     }
 
     public static IntVec3 GetNearestSafeRoofedCell(Pawn pawn, IntVec3 root, Map map, FloatRange tempRange)
     {
+        RCellFinder.TryFindRandomCellNearWith(root, baseValidator, map, out var cell);
+        return cell;
+
         bool baseValidator(IntVec3 chkcell)
         {
             if (!chkcell.Standable(map))
@@ -85,9 +88,6 @@ public class BrrrGlobals
             var room = chkcell.GetRoom(map);
             return pawn.IsPrisoner == room is { IsPrisonCell: true };
         }
-
-        RCellFinder.TryFindRandomCellNearWith(root, baseValidator, map, out var cell);
-        return cell;
     }
 
     public static void JoyTickOohCheckEnd(Pawn pawn,
