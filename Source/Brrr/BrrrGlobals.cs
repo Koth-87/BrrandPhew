@@ -100,15 +100,15 @@ public class BrrrGlobals
             return;
         }
 
-        pawn.needs.joy.GainJoy(extraJoyGainFactor * curJob.def.joyGainRate * 0.36f / 2500f, curJob.def.joyKind);
+        pawn.needs.joy?.GainJoy(extraJoyGainFactor * curJob.def.joyGainRate * 0.36f / 2500f, curJob.def.joyKind);
         if (curJob.def.joySkill != null)
         {
-            pawn.skills.GetSkill(curJob.def.joySkill).Learn(curJob.def.joyXpPerTick);
+            pawn.skills?.GetSkill(curJob.def.joySkill).Learn(curJob.def.joyXpPerTick);
         }
 
         if (!curJob.ignoreJoyTimeAssignment && !pawn.GetTimeAssignment().allowJoy)
         {
-            pawn.jobs.curDriver.EndJobWith(JobCondition.InterruptForced);
+            pawn.jobs?.curDriver.EndJobWith(JobCondition.InterruptForced);
         }
 
         if (!(pawn.needs.outdoors.CurLevelPercentage >= 0.75f))
@@ -118,7 +118,7 @@ public class BrrrGlobals
 
         if (fullJoyAction == JoyTickFullJoyAction.EndJob)
         {
-            pawn.jobs.curDriver.EndJobWith(JobCondition.Succeeded);
+            pawn.jobs?.curDriver.EndJobWith(JobCondition.Succeeded);
             return;
         }
 
@@ -127,7 +127,7 @@ public class BrrrGlobals
             return;
         }
 
-        pawn.jobs.curDriver.ReadyForNextToil();
+        pawn.jobs?.curDriver.ReadyForNextToil();
     }
 
     public static bool BrrrAnimalIsFollowing(Pawn pawn)
