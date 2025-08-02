@@ -8,7 +8,7 @@ namespace Brrr;
 [StaticConstructorOnStartup]
 internal static class MultiplayerSupport
 {
-    private static readonly Harmony harmony = new Harmony("rimworld.pelador.brr.multiplayersupport");
+    private static readonly Harmony harmony = new("rimworld.pelador.brr.multiplayersupport");
 
     static MultiplayerSupport()
     {

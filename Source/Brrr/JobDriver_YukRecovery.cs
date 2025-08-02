@@ -9,7 +9,7 @@ public class JobDriver_YukRecovery : JobDriver
 {
     public const TargetIndex BedOrRestSpotIndex = TargetIndex.A;
 
-    public Building_Bed Bed => (Building_Bed)job.GetTarget(TargetIndex.A).Thing;
+    private Building_Bed Bed => (Building_Bed)job.GetTarget(TargetIndex.A).Thing;
 
     public override bool TryMakePreToilReservations(bool errorOnFailed)
     {

@@ -50,13 +50,13 @@ public static class Toils_BrrrLayDown
                 ThoughtUtility.RemovePositiveBedroomThoughts(actor3);
             }
         };
-        layDown.tickAction = delegate
+        layDown.tickIntervalAction = delegate(int delta)
         {
             var actor2 = layDown.actor;
             var curJob = actor2.CurJob;
             var curDriver2 = actor2.jobs.curDriver;
-            var building_Bed = (Building_Bed)curJob.GetTarget(bedOrRestSpotIndex).Thing;
-            actor2.GainComfortFromCellIfPossible();
+            var buildingBed = (Building_Bed)curJob.GetTarget(bedOrRestSpotIndex).Thing;
+            actor2.GainComfortFromCellIfPossible(delta);
             if (!curDriver2.asleep)
             {
                 if (canSleep && (actor2.needs.rest != null && RestUtility.CanFallAsleep(actor2) || curJob.forceSleep))
@@ -64,11 +64,8 @@ public static class Toils_BrrrLayDown
                     curDriver2.asleep = true;
                 }
             }
-            else if (!canSleep)
-            {
-                curDriver2.asleep = false;
-            }
-            else if ((actor2.needs.rest == null || !RestUtility.CanFallAsleep(actor2)) && !curJob.forceSleep)
+            else if (!canSleep ||
+                     (actor2.needs.rest == null || !RestUtility.CanFallAsleep(actor2)) && !curJob.forceSleep)
             {
                 curDriver2.asleep = false;
             }
@@ -76,22 +73,25 @@ public static class Toils_BrrrLayDown
             if (curDriver2.asleep & gainRestAndHealth && actor2.needs.rest != null)
             {
                 var restEffectiveness =
-                    building_Bed == null ||
-                    !building_Bed.def.statBases.StatListContains(StatDefOf.BedRestEffectiveness)
-                        ? 0.8f
-                        : building_Bed.GetStatValue(StatDefOf.BedRestEffectiveness);
-                actor2.needs.rest.TickResting(restEffectiveness);
+                    buildingBed == null ||
+                    !buildingBed.def.statBases.StatListContains(StatDefOf.BedRestEffectiveness)
+                        ? GroundRestEffectiveness
+                        : buildingBed.GetStatValue(StatDefOf.BedRestEffectiveness);
+                for (var i = 0; i < delta; i++)
+                {
+                    actor2.needs.rest.TickResting(restEffectiveness);
+                }
             }
 
             if (actor2.mindState.applyBedThoughtsTick != 0 &&
                 actor2.mindState.applyBedThoughtsTick <= Find.TickManager.TicksGame)
             {
-                ApplyBedThoughts(actor2);
+                applyBedThoughts(actor2);
                 actor2.mindState.applyBedThoughtsTick += 60000;
                 actor2.mindState.applyBedThoughtsOnLeave = true;
             }
 
-            if (actor2.IsHashIntervalTick(TicksBetweenSleepZs) && !actor2.Position.Fogged(actor2.Map))
+            if (actor2.IsHashIntervalTick(TicksBetweenSleepZs, delta) && !actor2.Position.Fogged(actor2.Map))
             {
                 if (curDriver2.asleep)
                 {
@@ -104,8 +104,8 @@ public static class Toils_BrrrLayDown
                 }
             }
 
-            if (actor2.ownership != null && building_Bed is { Medical: false } &&
-                !building_Bed.OwnersForReading.Contains(actor2))
+            if (actor2.ownership != null && buildingBed is { Medical: false } &&
+                !buildingBed.OwnersForReading.Contains(actor2))
             {
                 if (actor2.Downed)
                 {
@@ -116,7 +116,7 @@ public static class Toils_BrrrLayDown
                 return;
             }
 
-            if (lookForOtherJobs && actor2.IsHashIntervalTick(GetUpOrStartJobWhileInBedCheckInterval))
+            if (lookForOtherJobs && actor2.IsHashIntervalTick(GetUpOrStartJobWhileInBedCheckInterval, delta))
             {
                 actor2.jobs.CheckForJobOverride();
             }
@@ -158,7 +158,7 @@ public static class Toils_BrrrLayDown
             var curDriver = actor.jobs.curDriver;
             if (actor.mindState.applyBedThoughtsOnLeave)
             {
-                ApplyBedThoughts(actor);
+                applyBedThoughts(actor);
             }
 
             curDriver.asleep = false;
@@ -166,14 +166,14 @@ public static class Toils_BrrrLayDown
         return layDown;
     }
 
-    private static void ApplyBedThoughts(Pawn actor)
+    private static void applyBedThoughts(Pawn actor)
     {
         if (actor.needs.mood == null)
         {
             return;
         }
 
-        var building_Bed = actor.CurrentBed();
+        var buildingBed = actor.CurrentBed();
         actor.needs.mood.thoughts.memories.RemoveMemoriesOfDef(ThoughtDefOf.SleptInBedroom);
         actor.needs.mood.thoughts.memories.RemoveMemoriesOfDef(ThoughtDefOf.SleptInBarracks);
         actor.needs.mood.thoughts.memories.RemoveMemoriesOfDef(ThoughtDefOf.SleptOutside);
@@ -185,7 +185,7 @@ public static class Toils_BrrrLayDown
             actor.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleptOutside);
         }
 
-        if (building_Bed == null || building_Bed.CostListAdjusted().Count == 0)
+        if (buildingBed == null || buildingBed.CostListAdjusted().Count == 0)
         {
             actor.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleptOnGround);
         }
@@ -200,18 +200,18 @@ public static class Toils_BrrrLayDown
             actor.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleptInHeat);
         }
 
-        if (building_Bed == null || building_Bed != actor.ownership.OwnedBed || building_Bed.ForPrisoners ||
+        if (buildingBed == null || buildingBed != actor.ownership.OwnedBed || buildingBed.ForPrisoners ||
             actor.story.traits.HasTrait(TraitDefOf.Ascetic))
         {
             return;
         }
 
         ThoughtDef thoughtDef = null;
-        if (building_Bed.GetRoom().Role == RoomRoleDefOf.Bedroom)
+        if (buildingBed.GetRoom().Role == RoomRoleDefOf.Bedroom)
         {
             thoughtDef = ThoughtDefOf.SleptInBedroom;
         }
-        else if (building_Bed.GetRoom().Role == RoomRoleDefOf.Barracks)
+        else if (buildingBed.GetRoom().Role == RoomRoleDefOf.Barracks)
         {
             thoughtDef = ThoughtDefOf.SleptInBarracks;
         }
@@ -222,7 +222,7 @@ public static class Toils_BrrrLayDown
         }
 
         var scoreStageIndex =
-            RoomStatDefOf.Impressiveness.GetScoreStageIndex(building_Bed.GetRoom()
+            RoomStatDefOf.Impressiveness.GetScoreStageIndex(buildingBed.GetRoom()
                 .GetStat(RoomStatDefOf.Impressiveness));
         if (thoughtDef.stages[scoreStageIndex] != null)
         {

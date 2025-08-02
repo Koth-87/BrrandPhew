@@ -53,16 +53,16 @@ public class JobDriver_OohSkygaze : JobDriver
         }
 
         var num = GenCelestial.CurCelestialSunGlow(Map);
-        if (num < 0.1f)
+        switch (num)
         {
-            return "Brrr.OohStarGazing".Translate();
+            case < 0.1f:
+                return "Brrr.OohStarGazing".Translate();
+            case >= 0.65f:
+                return "Brrr.OohClouds".Translate();
+            default:
+                return GenLocalDate.DayPercent(pawn) < 0.5f
+                    ? "Brrr.OohSunrise".Translate()
+                    : "Brrr.OohSunset".Translate();
         }
-
-        if (num >= 0.65f)
-        {
-            return "Brrr.OohClouds".Translate();
-        }
-
-        return GenLocalDate.DayPercent(pawn) < 0.5f ? "Brrr.OohSunrise".Translate() : "Brrr.OohSunset".Translate();
     }
 }

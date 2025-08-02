@@ -96,12 +96,12 @@ public class JobGiver_Ooh : ThinkNode_JobGiver
             }
         }
 
-        if (!TryFindOohCell(pawn.Position, pawn, out var OohStarGazeDest))
+        if (!tryFindOohCell(pawn.Position, pawn, out var OohStarGazeDest))
         {
             return null;
         }
 
-        if (!TryFindOohWalkPath(pawn, OohStarGazeDest, out var OohWalkDests))
+        if (!tryFindOohWalkPath(pawn, OohStarGazeDest, out var OohWalkDests))
         {
             return null;
         }
@@ -111,7 +111,7 @@ public class JobGiver_Ooh : ThinkNode_JobGiver
         {
             OohJob = new Job(BrrrJobDefOf.Brrr_GoForWalk, OohWalkDests[0])
             {
-                targetQueueA = new List<LocalTargetInfo>()
+                targetQueueA = []
             };
             for (var i = 1; i < OohWalkDests.Count; i++)
             {
@@ -128,7 +128,7 @@ public class JobGiver_Ooh : ThinkNode_JobGiver
         return OohJob;
     }
 
-    public static bool TryFindOohCell(IntVec3 root, Pawn searcher, out IntVec3 result)
+    private static bool tryFindOohCell(IntVec3 root, Pawn searcher, out IntVec3 result)
     {
         var traverseParms = TraverseParms.For(searcher);
         if (CellFinder.TryFindClosestRegionWith(root.GetRegion(searcher.Map), traverseParms, validator, 300,
@@ -152,7 +152,7 @@ public class JobGiver_Ooh : ThinkNode_JobGiver
         }
     }
 
-    public static bool TryFindOohWalkPath(Pawn pawn, IntVec3 root, out List<IntVec3> result)
+    private static bool tryFindOohWalkPath(Pawn pawn, IntVec3 root, out List<IntVec3> result)
     {
         var list = new List<IntVec3>
         {
@@ -187,18 +187,14 @@ public class JobGiver_Ooh : ThinkNode_JobGiver
 
                 if (list.Count >= 2)
                 {
-                    var angleFlat = (list[list.Count - 1] - list[list.Count - 2]).AngleFlat;
+                    var angleFlat = (list[^1] - list[^2]).AngleFlat;
                     var angleFlat2 = (intVec3 - intVec).AngleFlat;
-                    float num5;
-                    if (angleFlat2 > angleFlat)
-                    {
-                        num5 = angleFlat2 - angleFlat;
-                    }
-                    else
+                    if (!(angleFlat2 > angleFlat))
                     {
                         angleFlat -= 360f;
-                        num5 = angleFlat2 - angleFlat;
                     }
+
+                    var num5 = angleFlat2 - angleFlat;
 
                     if (num5 > 110f)
                     {

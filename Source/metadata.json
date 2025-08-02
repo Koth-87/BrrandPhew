@@ -2,11 +2,17 @@
   "Continued": true,
   "CanAdd": "0",
   "CanRemove": "0",
-  "PreviewVersion": "1.5",
-  "LastXmlCleaning": "2025-02-15T19:30:11.1604995+01:00",
+  "PreviewVersion": "1.6",
+  "LastXmlCleaning": "2025-08-02T21:59:19.6425344+02:00",
   "SocialImageSet": true,
   "SearchTags": [
     " heatstroke",
     " hypothermia"
-  ]
+  ],
+  "Patches": false,
+  "Defs": true,
+  "Assemblies": true,
+  "LinesOfCode": 64195,
+  "LinesOfXML": 6114,
+  "CodeBaseSize": 77
 }

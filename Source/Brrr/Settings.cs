@@ -35,56 +35,56 @@ public class Settings : ModSettings
 
     private static readonly float separator = 7f;
 
-    public void DoWindowContents(Rect canvas)
+    public static void DoWindowContents(Rect canvas)
     {
-        var listing_Standard = new Listing_Standard
+        var listingStandard = new Listing_Standard
         {
             ColumnWidth = canvas.width
         };
-        listing_Standard.Begin(canvas);
-        listing_Standard.Gap();
-        listing_Standard.CheckboxLabeled("Brrr.UseBrrr".Translate(), ref UseBrrr);
-        listing_Standard.Gap(2f);
-        listing_Standard.Label("Brrr.UnsafeBrrrSev".Translate() + "  " + UnsafeBrrrSev);
-        UnsafeBrrrSev = listing_Standard.Slider(UnsafeBrrrSev, 10f, 30f);
-        listing_Standard.Gap(separator);
-        listing_Standard.CheckboxLabeled("Brrr.UsePhew".Translate(), ref UsePhew);
-        listing_Standard.Gap(2f);
-        listing_Standard.Label("Brrr.UnsafePhewSev".Translate() + "  " + UnsafePhewSev);
-        UnsafePhewSev = listing_Standard.Slider(UnsafePhewSev, 10f, 30f);
-        listing_Standard.Gap(separator);
-        listing_Standard.CheckboxLabeled("Brrr.UseYuk".Translate(), ref UseYuk);
-        listing_Standard.Gap(2f);
-        listing_Standard.Label("Brrr.UnsafeYukSev".Translate() + "  " + UnsafeYukSev);
-        UnsafeYukSev = listing_Standard.Slider(UnsafeYukSev, 5f, 15f);
-        listing_Standard.Gap(separator);
-        listing_Standard.CheckboxLabeled("Brrr.UseGasp".Translate(), ref UseGasp);
-        listing_Standard.Gap(2f);
-        listing_Standard.Label("Brrr.UnsafeGaspSev".Translate() + "  " + UnsafeGaspSev);
-        UnsafeYukSev = listing_Standard.Slider(UnsafeYukSev, 5f, 15f);
-        listing_Standard.Gap(separator);
-        listing_Standard.CheckboxLabeled("Brrr.UseOoh".Translate(), ref UseOoh);
-        listing_Standard.Gap(2f);
-        listing_Standard.Label("Brrr.OohSev".Translate() + "  " + OohSev);
-        OohSev = listing_Standard.Slider(OohSev, 10f, 30f);
-        listing_Standard.Gap(separator);
-        listing_Standard.CheckboxLabeled("Brrr.AllowJoy".Translate(), ref AllowJoy);
-        listing_Standard.Gap(2f);
-        listing_Standard.Label("Brrr.JoySev".Translate() + "  " + JoySev);
-        JoySev = listing_Standard.Slider(JoySev, 5f, 25f);
-        listing_Standard.Gap(separator);
-        listing_Standard.CheckboxLabeled("Brrr.ApplyAnimals".Translate(), ref ApplyAnimals);
-        listing_Standard.Gap(separator);
-        listing_Standard.CheckboxLabeled("Brrr.AllowUnsafeAreas".Translate(), ref AllowUnsafeAreas);
-        if (Controller.currentVersion != null)
+        listingStandard.Begin(canvas);
+        listingStandard.Gap();
+        listingStandard.CheckboxLabeled("Brrr.UseBrrr".Translate(), ref UseBrrr);
+        listingStandard.Gap(2f);
+        listingStandard.Label("Brrr.UnsafeBrrrSev".Translate() + "  " + UnsafeBrrrSev);
+        UnsafeBrrrSev = listingStandard.Slider(UnsafeBrrrSev, 10f, 30f);
+        listingStandard.Gap(separator);
+        listingStandard.CheckboxLabeled("Brrr.UsePhew".Translate(), ref UsePhew);
+        listingStandard.Gap(2f);
+        listingStandard.Label("Brrr.UnsafePhewSev".Translate() + "  " + UnsafePhewSev);
+        UnsafePhewSev = listingStandard.Slider(UnsafePhewSev, 10f, 30f);
+        listingStandard.Gap(separator);
+        listingStandard.CheckboxLabeled("Brrr.UseYuk".Translate(), ref UseYuk);
+        listingStandard.Gap(2f);
+        listingStandard.Label("Brrr.UnsafeYukSev".Translate() + "  " + UnsafeYukSev);
+        UnsafeYukSev = listingStandard.Slider(UnsafeYukSev, 5f, 15f);
+        listingStandard.Gap(separator);
+        listingStandard.CheckboxLabeled("Brrr.UseGasp".Translate(), ref UseGasp);
+        listingStandard.Gap(2f);
+        listingStandard.Label("Brrr.UnsafeGaspSev".Translate() + "  " + UnsafeGaspSev);
+        UnsafeYukSev = listingStandard.Slider(UnsafeYukSev, 5f, 15f);
+        listingStandard.Gap(separator);
+        listingStandard.CheckboxLabeled("Brrr.UseOoh".Translate(), ref UseOoh);
+        listingStandard.Gap(2f);
+        listingStandard.Label("Brrr.OohSev".Translate() + "  " + OohSev);
+        OohSev = listingStandard.Slider(OohSev, 10f, 30f);
+        listingStandard.Gap(separator);
+        listingStandard.CheckboxLabeled("Brrr.AllowJoy".Translate(), ref AllowJoy);
+        listingStandard.Gap(2f);
+        listingStandard.Label("Brrr.JoySev".Translate() + "  " + JoySev);
+        JoySev = listingStandard.Slider(JoySev, 5f, 25f);
+        listingStandard.Gap(separator);
+        listingStandard.CheckboxLabeled("Brrr.ApplyAnimals".Translate(), ref ApplyAnimals);
+        listingStandard.Gap(separator);
+        listingStandard.CheckboxLabeled("Brrr.AllowUnsafeAreas".Translate(), ref AllowUnsafeAreas);
+        if (Controller.CurrentVersion != null)
         {
-            listing_Standard.Gap(separator);
+            listingStandard.Gap(separator);
             GUI.contentColor = Color.gray;
-            listing_Standard.Label("Brrr.CurrentModVersion".Translate(Controller.currentVersion));
+            listingStandard.Label("Brrr.CurrentModVersion".Translate(Controller.CurrentVersion));
             GUI.contentColor = Color.white;
         }
 
-        listing_Standard.End();
+        listingStandard.End();
     }
 
     public override void ExposeData()
