@@ -47,33 +47,47 @@ public class JobGiver_Gasp : ThinkNode_JobGiver
             return null;
         }
 
-        var OxStarve = DefDatabase<HediffDef>.GetNamed("OxygenStarvation", false);
-        if (OxStarve == null || !pawn.health.hediffSet.HasHediff(OxStarve))
+        var oxStarve = DefDatabase<HediffDef>.GetNamed("OxygenStarvation", false);
+        var vacExposure = DefDatabase<HediffDef>.GetNamed("VacuumExposure", false);
+
+        if (oxStarve == null && vacExposure == null)
         {
             return null;
         }
 
-        var HedBreath = pawn.health.hediffSet.GetFirstHediffOfDef(OxStarve);
-        if (HedBreath == null || HedBreath.Severity < Settings.UnsafeGaspSev / 100f)
+        if (oxStarve != null)
         {
-            return null;
+            var hedBreath = pawn.health.hediffSet.GetFirstHediffOfDef(oxStarve);
+            if (hedBreath == null || hedBreath.Severity < Settings.UnsafeGaspSev / 100f)
+            {
+                return null;
+            }
         }
 
-        Thing BrrrBed = null;
-        var FindBed = RestUtility.FindBedFor(pawn, pawn, false, true);
-        if (FindBed != null && FindBed.Position.Roofed(pawn.Map) &&
-            pawn.ComfortableTemperatureRange().Includes(FindBed.GetRoom().Temperature))
+        if (vacExposure != null)
         {
-            BrrrBed = FindBed;
+            var exposure = pawn.health.hediffSet.GetFirstHediffOfDef(vacExposure);
+            if (exposure == null || exposure.Severity < Settings.UnsafeGaspSev / 100f)
+            {
+                return null;
+            }
         }
 
-        if (BrrrBed != null)
+        Thing brrBed = null;
+        var findBed = RestUtility.FindBedFor(pawn, pawn, false, true);
+        if (findBed != null && findBed.Position.Roofed(pawn.Map) &&
+            pawn.ComfortableTemperatureRange().Includes(findBed.GetRoom().Temperature))
         {
-            return new Job(BrrrJobDefOf.Brrr_GaspRecovery, BrrrBed);
+            brrBed = findBed;
+        }
+
+        if (brrBed != null)
+        {
+            return new Job(BrrrJobDefOf.Brrr_GaspRecovery, brrBed);
         }
 
         var tempRange = pawn.ComfortableTemperatureRange();
-        var SafeCell = BrrrGlobals.GetNearestSafeRoofedCell(pawn, pawn.Position, pawn.Map, tempRange);
-        return new Job(BrrrJobDefOf.Brrr_GaspRecovery, SafeCell);
+        var safeCell = BrrrGlobals.GetNearestSafeRoofedCell(pawn, pawn.Position, pawn.Map, tempRange);
+        return new Job(BrrrJobDefOf.Brrr_GaspRecovery, safeCell);
     }
 }

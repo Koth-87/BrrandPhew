@@ -3,7 +3,7 @@
   "CanAdd": "0",
   "CanRemove": "0",
   "PreviewVersion": "1.6",
-  "LastXmlCleaning": "2025-08-02T21:59:19.6425344+02:00",
+  "LastXmlCleaning": "2025-08-11T21:53:45.1561757+02:00",
   "SocialImageSet": true,
   "SearchTags": [
     " heatstroke",
@@ -12,7 +12,7 @@
   "Patches": false,
   "Defs": true,
   "Assemblies": true,
-  "LinesOfCode": 64195,
+  "LinesOfCode": 65377,
   "LinesOfXML": 6114,
-  "CodeBaseSize": 77
+  "CodeBaseSize": 76
 }

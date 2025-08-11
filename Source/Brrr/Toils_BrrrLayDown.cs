@@ -8,7 +8,7 @@ public static class Toils_BrrrLayDown
 {
     private const int TicksBetweenSleepZs = 100;
 
-    public const float GroundRestEffectiveness = 0.8f;
+    private const float GroundRestEffectiveness = 0.8f;
 
     private const int GetUpOrStartJobWhileInBedCheckInterval = 211;
 
@@ -146,11 +146,14 @@ public static class Toils_BrrrLayDown
             var actor = layDown.actor;
             var hypoHed = actor.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.Hypothermia);
             var heatHed = actor.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.Heatstroke);
-            var ToxHed = actor.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.ToxicBuildup);
-            var BreathHed =
+            var toxHed = actor.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.ToxicBuildup);
+            var breathHed =
                 actor.health.hediffSet.GetFirstHediffOfDef(
                     DefDatabase<HediffDef>.GetNamed("OxygenStarvation", false));
-            return hypoHed == null && heatHed == null && ToxHed == null && BreathHed == null;
+            var exposureHed =
+                actor.health.hediffSet.GetFirstHediffOfDef(
+                    DefDatabase<HediffDef>.GetNamed("VacuumExposure", false));
+            return hypoHed == null && heatHed == null && toxHed == null && breathHed == null && exposureHed == null;
         });
         layDown.AddFinishAction(delegate
         {

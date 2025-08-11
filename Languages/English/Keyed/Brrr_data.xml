@@ -12,8 +12,8 @@
   <Brrr.UseYuk>Enable Yuk (Toxic buildup reaction):</Brrr.UseYuk>
   <Brrr.UnsafeYukSev>Percentage of Toxic buildup to trigger [default 10%]:</Brrr.UnsafeYukSev>
   <Brrr.UnsafeYukSevTip>Default is [10%]</Brrr.UnsafeYukSevTip>
-  <Brrr.UseGasp>Enable Gasp (Oxygen Starvation reaction):</Brrr.UseGasp>
-  <Brrr.UnsafeGaspSev>Percentage of Oxygen Starvation to trigger [default 10%]:</Brrr.UnsafeGaspSev>
+  <Brrr.UseGasp>Enable Gasp (Oxygen Starvation/Vacuum exposure reaction):</Brrr.UseGasp>
+  <Brrr.UnsafeGaspSev>Percentage of Oxygen Starvation/Vacuum exposure to trigger [default 10%]:</Brrr.UnsafeGaspSev>
   <Brrr.UnsafeGaspSevTip>Default is [10%]</Brrr.UnsafeGaspSevTip>
   <Brrr.UseOoh>Enable Ooh (Cabin Fever reaction):</Brrr.UseOoh>
   <Brrr.OohSev>Percentage of Cabin Fever to trigger [default 20%]:</Brrr.OohSev>
@@ -30,8 +30,8 @@
   <Brrr.PhewRecoverResting>resting, recovery (heatstroke).</Brrr.PhewRecoverResting>
   <Brrr.YukRecoverSleeping>sleeping, recovery (toxic buildup).</Brrr.YukRecoverSleeping>
   <Brrr.YukRecoverResting>resting, recovery (toxic buildup).</Brrr.YukRecoverResting>
-  <Brrr.GaspRecoverSleeping>sleeping, recovery (oxygen starvation).</Brrr.GaspRecoverSleeping>
-  <Brrr.GaspRecoverResting>resting, recovery (oxygen starvation).</Brrr.GaspRecoverResting>
+  <Brrr.GaspRecoverSleeping>sleeping, recovery (oxygen starvation/vacuum exposure).</Brrr.GaspRecoverSleeping>
+  <Brrr.GaspRecoverResting>resting, recovery (oxygen starvation/vacuum exposure).</Brrr.GaspRecoverResting>
   <Brrr.OohEclipse>Watching Eclipse (Cabin Fever)</Brrr.OohEclipse>
   <Brrr.OohAurora>Watching Aurora (Cabin Fever)</Brrr.OohAurora>
   <Brrr.OohStarGazing>Stargazing (Cabin Fever)</Brrr.OohStarGazing>
