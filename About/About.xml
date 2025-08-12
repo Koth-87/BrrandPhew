@@ -27,6 +27,8 @@
 Update of peladors mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2000287305
 
+- If using Odyssey DLC, the Gasp-reaction will now make pawns seek shelter from Vacuum exposure
+
 [img]https://i.imgur.com/pufA0kM.png[/img]
 
 [table]
@@ -110,5 +112,5 @@ German Translation - Trunken
 [/list] 
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2195938471][img]https://img.shields.io/github/v/release/emipa606/BrrandPhew?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags:  heatstroke,  hypothermia</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.6.1</modVersion>
+  <modVersion IgnoreIfNoMatchingField="True">1.6.2</modVersion>
 </ModMetaData>

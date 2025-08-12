@@ -5,6 +5,8 @@
 Update of peladors mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2000287305
 
+- If using Odyssey DLC, the Gasp-reaction will now make pawns seek shelter from Vacuum exposure
+
 ![Image](https://i.imgur.com/pufA0kM.png)
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)

@@ -70,7 +70,7 @@ public class JobGiver_AnimalGasp : ThinkNode_JobGiver
             return null;
         }
 
-        if (oxStarve != null && pawn.health.hediffSet.HasHediff(oxStarve))
+        if (oxStarve != null)
         {
             var hedBreath = pawn.health.hediffSet.GetFirstHediffOfDef(oxStarve);
             if (hedBreath == null || hedBreath.Severity < Settings.UnsafeGaspSev / 100f)
@@ -79,7 +79,7 @@ public class JobGiver_AnimalGasp : ThinkNode_JobGiver
             }
         }
 
-        if (vacExposure != null && pawn.health.hediffSet.HasHediff(vacExposure))
+        if (vacExposure != null)
         {
             var exposure = pawn.health.hediffSet.GetFirstHediffOfDef(vacExposure);
             if (exposure == null || exposure.Severity < Settings.UnsafeGaspSev / 100f)

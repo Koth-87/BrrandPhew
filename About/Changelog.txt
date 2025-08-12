@@ -1,5 +1,8 @@
 # Changelog for BrrandPhew
 
+1.6.2 - Fixed animal gasp-workgiver
+
+
 1.6.1 - Added support for Odysseys vacuum exposure in the Gasp-reaction
 
 
