@@ -1,5 +1,9 @@
 # Changelog for BrrandPhew
 
+1.6.3 - Fixed the setting-sliders. Allows for larger values.
+Used DeepL to update translations for ChineseSimplified, French, German
+
+
 1.6.2 - Fixed animal gasp-workgiver
 
 
