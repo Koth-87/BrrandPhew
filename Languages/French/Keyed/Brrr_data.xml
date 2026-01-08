@@ -41,4 +41,9 @@
   <!-- Content -->
   <Brrr.ResetSettings>Réinitialiser les paramètres</Brrr.ResetSettings>
   <Brrr.Reset>Remise à zéro</Brrr.Reset>
+  <Brrr.UseRed>Activer le Rouge (réaction de Bloodrage) :</Brrr.UseRed>
+  <Brrr.UnsafeRedSev>Pourcentage de Bloodrage à déclencher :</Brrr.UnsafeRedSev>
+  <Brrr.UnsafeRedSevTip>La valeur par défaut est [10%]</Brrr.UnsafeRedSevTip>
+  <Brrr.RedRecoverSleeping>sommeil, récupération (accumulation de sang).</Brrr.RedRecoverSleeping>
+  <Brrr.RedRecoverResting>repos, récupération (accumulation de sang).</Brrr.RedRecoverResting>
 </LanguageData>

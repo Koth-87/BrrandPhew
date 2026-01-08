@@ -4,11 +4,11 @@ using Verse.AI;
 
 namespace Brrr;
 
-public class JobGiver_AnimalPhew : ThinkNode_JobGiver
+public class JobGiver_AnimalRed : ThinkNode_JobGiver
 {
     protected override Job TryGiveJob(Pawn pawn)
     {
-        if (!Settings.UsePhew || !Settings.ApplyAnimals)
+        if (!Settings.UseRed || !Settings.ApplyAnimals)
         {
             return null;
         }
@@ -63,20 +63,20 @@ public class JobGiver_AnimalPhew : ThinkNode_JobGiver
             return null;
         }
 
-        if (!pawn.health.hediffSet.HasHediff(HediffDefOf.Heatstroke))
+        if (!pawn.health.hediffSet.HasHediff(HediffDefOf.BloodRage))
         {
             return null;
         }
 
-        var HedHeat = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.Heatstroke);
-        if (HedHeat == null || !(HedHeat.Severity >= Settings.UnsafePhewSev / 100f))
+        var HedTox = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodRage);
+        if (HedTox == null || HedTox.Severity < Settings.UnsafeRedSev / 100f)
         {
             return null;
         }
 
         Thing BrrrBed = null;
         var FindBed = RestUtility.FindBedFor(pawn, pawn, false, true);
-        if (FindBed != null && !FindBed.GetRoom().PsychologicallyOutdoors &&
+        if (FindBed != null && FindBed.Position.Roofed(pawn.Map) &&
             pawn.ComfortableTemperatureRange().Includes(FindBed.GetRoom().Temperature))
         {
             BrrrBed = FindBed;
@@ -84,12 +84,11 @@ public class JobGiver_AnimalPhew : ThinkNode_JobGiver
 
         if (BrrrBed != null)
         {
-            return new Job(BrrrJobDefOf.Brrr_PhewRecovery, BrrrBed);
+            return new Job(BrrrJobDefOf.Brrr_RedRecovery, BrrrBed);
         }
 
         var tempRange = pawn.ComfortableTemperatureRange();
-        var region = BrrrGlobals.BrrrClosestRegionWithinTemperatureRange(pawn.Position, pawn.Map, tempRange,
-            TraverseParms.For(pawn));
-        return region != null ? BrrrGlobals.GenNewRRJob(BrrrJobDefOf.Brrr_BrrrRecovery, region) : null;
+        var SafeCell = BrrrGlobals.GetNearestSafeRoofedCell(pawn, pawn.Position, pawn.Map, tempRange);
+        return new Job(BrrrJobDefOf.Brrr_RedRecovery, SafeCell);
     }
 }

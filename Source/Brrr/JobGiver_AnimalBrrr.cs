@@ -57,7 +57,8 @@ public class JobGiver_AnimalBrrr : ThinkNode_JobGiver
         }
 
         if (pawn.CurJobDef == BrrrJobDefOf.Brrr_BrrrRecovery || pawn.CurJobDef == BrrrJobDefOf.Brrr_GaspRecovery ||
-            pawn.CurJobDef == BrrrJobDefOf.Brrr_PhewRecovery || pawn.CurJobDef == BrrrJobDefOf.Brrr_YukRecovery)
+            pawn.CurJobDef == BrrrJobDefOf.Brrr_PhewRecovery || pawn.CurJobDef == BrrrJobDefOf.Brrr_YukRecovery ||
+            pawn.CurJobDef == BrrrJobDefOf.Brrr_RedRecovery)
         {
             return null;
         }

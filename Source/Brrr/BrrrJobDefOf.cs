@@ -6,6 +6,7 @@ namespace Brrr;
 [DefOf]
 public static class BrrrJobDefOf
 {
+    public static JobDef Brrr_RedRecovery;
     public static JobDef Brrr_BrrrRecovery;
 
     public static JobDef Brrr_GaspRecovery;

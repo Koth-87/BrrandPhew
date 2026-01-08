@@ -41,4 +41,9 @@
   <Brrr.AllowUnsafeAreas>允许在不安全地区进行恢复。</Brrr.AllowUnsafeAreas>
   <Brrr.ResetSettings>重置设置</Brrr.ResetSettings>
   <Brrr.Reset>重置</Brrr.Reset>
+  <Brrr.UseRed>启用红色（Bloodrage 反应）：</Brrr.UseRed>
+  <Brrr.UnsafeRedSev>触发血怒的百分比：</Brrr.UnsafeRedSev>
+  <Brrr.UnsafeRedSevTip>默认为 [10%］</Brrr.UnsafeRedSevTip>
+  <Brrr.RedRecoverSleeping>睡眠、恢复（血量积累）。</Brrr.RedRecoverSleeping>
+  <Brrr.RedRecoverResting>休息、恢复（血量积累）。</Brrr.RedRecoverResting>
 </LanguageData>

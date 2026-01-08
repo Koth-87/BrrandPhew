@@ -147,13 +147,15 @@ public static class Toils_BrrrLayDown
             var hypoHed = actor.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.Hypothermia);
             var heatHed = actor.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.Heatstroke);
             var toxHed = actor.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.ToxicBuildup);
+            var redHed = actor.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodRage);
             var breathHed =
                 actor.health.hediffSet.GetFirstHediffOfDef(
                     DefDatabase<HediffDef>.GetNamed("OxygenStarvation", false));
             var exposureHed =
                 actor.health.hediffSet.GetFirstHediffOfDef(
                     DefDatabase<HediffDef>.GetNamed("VacuumExposure", false));
-            return hypoHed == null && heatHed == null && toxHed == null && breathHed == null && exposureHed == null;
+            return hypoHed == null && heatHed == null && toxHed == null && breathHed == null && exposureHed == null &&
+                   redHed == null;
         });
         layDown.AddFinishAction(delegate
         {

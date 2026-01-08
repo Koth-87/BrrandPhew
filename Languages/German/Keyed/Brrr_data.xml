@@ -41,4 +41,9 @@
   <Brrr.AllowUnsafeAreas>Erlauben Sie die Wiederherstellung in unsicheren Gebieten:</Brrr.AllowUnsafeAreas>
   <Brrr.ResetSettings>Einstellungen zurücksetzen</Brrr.ResetSettings>
   <Brrr.Reset>Zurücksetzen</Brrr.Reset>
+  <Brrr.UseRed>Aktivieren Sie Rot (Bloodrage Reaktion):</Brrr.UseRed>
+  <Brrr.UnsafeRedSev>Prozentsatz der Bloodrage zum Auslösen:</Brrr.UnsafeRedSev>
+  <Brrr.UnsafeRedSevTip>Standard ist [10%]</Brrr.UnsafeRedSevTip>
+  <Brrr.RedRecoverSleeping>Schlafen, Erholung (Blutrauschaufbau).</Brrr.RedRecoverSleeping>
+  <Brrr.RedRecoverResting>ausruhen, erholen (Blutrausch aufbauen).</Brrr.RedRecoverResting>
 </LanguageData>

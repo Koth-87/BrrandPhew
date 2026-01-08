@@ -4,11 +4,11 @@ using Verse.AI;
 
 namespace Brrr;
 
-public class JobGiver_Gasp : ThinkNode_JobGiver
+public class JobGiver_Red : ThinkNode_JobGiver
 {
     protected override Job TryGiveJob(Pawn pawn)
     {
-        if (!Settings.UseGasp || !pawn.IsColonistPlayerControlled)
+        if (!Settings.UseRed || !pawn.IsColonistPlayerControlled)
         {
             return null;
         }
@@ -48,47 +48,35 @@ public class JobGiver_Gasp : ThinkNode_JobGiver
             return null;
         }
 
-        var oxStarve = DefDatabase<HediffDef>.GetNamed("OxygenStarvation", false);
-        var vacExposure = DefDatabase<HediffDef>.GetNamed("VacuumExposure", false);
-
-        if (oxStarve == null && vacExposure == null)
+        if (!pawn.health.hediffSet.HasHediff(HediffDefOf.BloodRage))
         {
             return null;
         }
 
-        if (oxStarve != null)
+        var HedTox = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodRage);
+        if (HedTox == null || HedTox.Severity < Settings.UnsafeRedSev / 100f)
         {
-            var hedBreath = pawn.health.hediffSet.GetFirstHediffOfDef(oxStarve);
-            if (hedBreath == null || hedBreath.Severity < Settings.UnsafeGaspSev / 100f)
-            {
-                return null;
-            }
+            return null;
         }
 
-        if (vacExposure != null)
+        Thing RedBed = null;
+        Thing FindBed = Settings.AllowUnsafeAreas
+            ? RestUtility.FindBedFor(pawn)
+            : RestUtility.FindBedFor(pawn, pawn, false, true);
+
+        if (FindBed != null && FindBed.Position.Roofed(pawn.Map) &&
+            pawn.ComfortableTemperatureRange().Includes(FindBed.GetRoom().Temperature))
         {
-            var exposure = pawn.health.hediffSet.GetFirstHediffOfDef(vacExposure);
-            if (exposure == null || exposure.Severity < Settings.UnsafeGaspSev / 100f)
-            {
-                return null;
-            }
+            RedBed = FindBed;
         }
 
-        Thing brrBed = null;
-        var findBed = RestUtility.FindBedFor(pawn, pawn, false, true);
-        if (findBed != null && findBed.Position.Roofed(pawn.Map) &&
-            pawn.ComfortableTemperatureRange().Includes(findBed.GetRoom().Temperature))
+        if (RedBed != null)
         {
-            brrBed = findBed;
-        }
-
-        if (brrBed != null)
-        {
-            return new Job(BrrrJobDefOf.Brrr_GaspRecovery, brrBed);
+            return new Job(BrrrJobDefOf.Brrr_RedRecovery, RedBed);
         }
 
         var tempRange = pawn.ComfortableTemperatureRange();
-        var safeCell = BrrrGlobals.GetNearestSafeRoofedCell(pawn, pawn.Position, pawn.Map, tempRange);
-        return new Job(BrrrJobDefOf.Brrr_GaspRecovery, safeCell);
+        var SafeCell = BrrrGlobals.GetNearestSafeRoofedCell(pawn, pawn.Position, pawn.Map, tempRange);
+        return new Job(BrrrJobDefOf.Brrr_RedRecovery, SafeCell);
     }
 }

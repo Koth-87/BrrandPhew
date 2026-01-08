@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Think tree -->
+  <ThinkTreeDef>
+    <defName>RedCheck</defName>
+    <insertTag>Humanlike_PreMain</insertTag>
+    <insertPriority>97</insertPriority>
+    <thinkRoot Class="Brrr.ThinkNode_CanRed">
+      <subNodes>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="Brrr.JobGiver_Red" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+  <!-- job -->
+  <JobDef>
+    <defName>Brrr_RedRecovery</defName>
+    <driverClass>Brrr.JobDriver_RedRecovery</driverClass>
+    <reportString>recovering from bloodrage.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+  </JobDef>
+  <!-- Animals -->
+  <ThinkTreeDef>
+    <defName>RedCheckAnimal</defName>
+    <insertTag>Animal_PreMain</insertTag>
+    <insertPriority>97</insertPriority>
+    <thinkRoot Class="Brrr.ThinkNode_AnimalCanRed">
+      <subNodes>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="Brrr.JobGiver_AnimalRed" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+</Defs>

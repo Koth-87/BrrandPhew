@@ -4,22 +4,25 @@
   <Brrr.Name>Brrr and Phew</Brrr.Name>
   <Brrr.CurrentModVersion>Installed mod-version: {0}</Brrr.CurrentModVersion>
   <Brrr.UseBrrr>Enable Brrr (Hypothermia reaction):</Brrr.UseBrrr>
-  <Brrr.UnsafeBrrrSev>Percentage of Hypothermia to trigger [default 20%]:</Brrr.UnsafeBrrrSev>
+  <Brrr.UnsafeBrrrSev>Percentage of Hypothermia to trigger:</Brrr.UnsafeBrrrSev>
   <Brrr.UnsafeBrrrSevTip>Default is [20%]</Brrr.UnsafeBrrrSevTip>
   <Brrr.UsePhew>Enable Phew (Heatstroke reaction):</Brrr.UsePhew>
-  <Brrr.UnsafePhewSev>Percentage of Heatstroke to trigger [default 20%]:</Brrr.UnsafePhewSev>
+  <Brrr.UnsafePhewSev>Percentage of Heatstroke to trigger:</Brrr.UnsafePhewSev>
   <Brrr.UnsafePhewSevTip>Default is [20%]</Brrr.UnsafePhewSevTip>
   <Brrr.UseYuk>Enable Yuk (Toxic buildup reaction):</Brrr.UseYuk>
-  <Brrr.UnsafeYukSev>Percentage of Toxic buildup to trigger [default 10%]:</Brrr.UnsafeYukSev>
+  <Brrr.UnsafeYukSev>Percentage of Toxic buildup to trigger:</Brrr.UnsafeYukSev>
   <Brrr.UnsafeYukSevTip>Default is [10%]</Brrr.UnsafeYukSevTip>
+  <Brrr.UseRed>Enable Red (Bloodrage reaction):</Brrr.UseRed>
+  <Brrr.UnsafeRedSev>Percentage of Bloodrage to trigger:</Brrr.UnsafeRedSev>
+  <Brrr.UnsafeRedSevTip>Default is [10%]</Brrr.UnsafeRedSevTip>
   <Brrr.UseGasp>Enable Gasp (Oxygen Starvation/Vacuum exposure reaction):</Brrr.UseGasp>
-  <Brrr.UnsafeGaspSev>Percentage of Oxygen Starvation/Vacuum exposure to trigger [default 10%]:</Brrr.UnsafeGaspSev>
+  <Brrr.UnsafeGaspSev>Percentage of Oxygen Starvation/Vacuum exposure to trigger:</Brrr.UnsafeGaspSev>
   <Brrr.UnsafeGaspSevTip>Default is [10%]</Brrr.UnsafeGaspSevTip>
   <Brrr.UseOoh>Enable Ooh (Cabin Fever reaction):</Brrr.UseOoh>
   <Brrr.OohSev>Percentage of Cabin Fever to trigger [default 20%]:</Brrr.OohSev>
   <Brrr.OohSevTip>Default is [20%]</Brrr.OohSevTip>
   <Brrr.AllowJoy>Allow Joy activities during recovery:</Brrr.AllowJoy>
-  <Brrr.JoySev>Percentage when joy is required [default 12.5%]:</Brrr.JoySev>
+  <Brrr.JoySev>Percentage when joy is required:</Brrr.JoySev>
   <Brrr.JoySevTip>Default is [12.5%]</Brrr.JoySevTip>
   <Brrr.ApplyAnimals>Enable relevant reactions for colony animals:</Brrr.ApplyAnimals>
   <Brrr.AllowUnsafeAreas>Allow recovery in unsafe areas:</Brrr.AllowUnsafeAreas>
@@ -30,6 +33,8 @@
   <Brrr.PhewRecoverResting>resting, recovery (heatstroke).</Brrr.PhewRecoverResting>
   <Brrr.YukRecoverSleeping>sleeping, recovery (toxic buildup).</Brrr.YukRecoverSleeping>
   <Brrr.YukRecoverResting>resting, recovery (toxic buildup).</Brrr.YukRecoverResting>
+  <Brrr.RedRecoverSleeping>sleeping, recovery (bloodrage buildup).</Brrr.RedRecoverSleeping>
+  <Brrr.RedRecoverResting>resting, recovery (bloodrage buildup).</Brrr.RedRecoverResting>
   <Brrr.GaspRecoverSleeping>sleeping, recovery (oxygen starvation/vacuum exposure).</Brrr.GaspRecoverSleeping>
   <Brrr.GaspRecoverResting>resting, recovery (oxygen starvation/vacuum exposure).</Brrr.GaspRecoverResting>
   <Brrr.OohEclipse>Watching Eclipse (Cabin Fever)</Brrr.OohEclipse>

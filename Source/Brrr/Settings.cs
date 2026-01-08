@@ -5,6 +5,8 @@ namespace Brrr;
 
 public class Settings : ModSettings
 {
+    public static float UnsafeRedSev = 10f;
+    public static bool UseRed = ModLister.AnomalyInstalled;
     public static bool UseBrrr = true;
 
     public static float UnsafeBrrrSev = 20f;
@@ -52,51 +54,75 @@ public class Settings : ModSettings
         listingStandard.Gap(separator);
         listingStandard.CheckboxLabeled("Brrr.UseOoh".Translate(), ref UseOoh);
         listingStandard.Gap(separator);
+        var topHeight = listingStandard.CurHeight;
+        listingStandard.NewColumn();
+        if (ModLister.AnomalyInstalled)
+        {
+            listingStandard.CheckboxLabeled("Brrr.UseRed".Translate(), ref UseRed);
+            listingStandard.Gap(separator);
+        }
+        else
+        {
+            UseRed = false;
+        }
+
         listingStandard.CheckboxLabeled("Brrr.AllowJoy".Translate(), ref AllowJoy);
         listingStandard.Gap(separator);
         listingStandard.CheckboxLabeled("Brrr.ApplyAnimals".Translate(), ref ApplyAnimals);
         listingStandard.Gap(separator);
         listingStandard.CheckboxLabeled("Brrr.AllowUnsafeAreas".Translate(), ref AllowUnsafeAreas);
-        listingStandard.NewColumn();
+        listingStandard.End();
+        var lowerCanvas = canvas;
+        lowerCanvas.y += topHeight + 25f;
+        lowerCanvas.height -= topHeight + 25f;
+        listingStandard.Begin(lowerCanvas);
+        listingStandard.ColumnWidth = lowerCanvas.width;
         if (UseBrrr)
         {
-            listingStandard.Label("Brrr.UnsafeBrrrSev".Translate() + "  " + UnsafeBrrrSev);
-            UnsafeBrrrSev = listingStandard.Slider(UnsafeBrrrSev, 10f, 100f);
+            UnsafeBrrrSev = listingStandard.SliderLabeled("Brrr.UnsafeBrrrSev".Translate() + "  " + UnsafeBrrrSev,
+                UnsafeBrrrSev, 1f, 100f, tooltip: "Brrr.UnsafeBrrrSevTip".Translate());
             listingStandard.Gap(separator);
         }
 
         if (UsePhew)
         {
-            listingStandard.Label("Brrr.UnsafePhewSev".Translate() + "  " + UnsafePhewSev);
-            UnsafePhewSev = listingStandard.Slider(UnsafePhewSev, 10f, 100f);
+            UnsafePhewSev = listingStandard.SliderLabeled("Brrr.UnsafePhewSev".Translate() + "  " + UnsafePhewSev,
+                UnsafePhewSev, 1f, 100f, tooltip: "Brrr.UnsafePhewSevTip".Translate());
             listingStandard.Gap(separator);
         }
 
         if (UseYuk)
         {
-            listingStandard.Label("Brrr.UnsafeYukSev".Translate() + "  " + UnsafeYukSev);
-            UnsafeYukSev = listingStandard.Slider(UnsafeYukSev, 5f, 100f);
+            UnsafeYukSev = listingStandard.SliderLabeled("Brrr.UnsafeYukSev".Translate() + "  " + UnsafeYukSev,
+                UnsafeYukSev, 1f, 100f, tooltip: "Brrr.UnsafeYukSevTip".Translate());
+            listingStandard.Gap(separator);
+        }
+
+        if (UseRed)
+        {
+            UnsafeRedSev = listingStandard.SliderLabeled("Brrr.UnsafeRedSev".Translate() + "  " + UnsafeRedSev,
+                UnsafeRedSev, 1f, 100f, tooltip: "Brrr.UnsafeRedSevTip".Translate());
             listingStandard.Gap(separator);
         }
 
         if (UseGasp)
         {
-            listingStandard.Label("Brrr.UnsafeGaspSev".Translate() + "  " + UnsafeGaspSev);
-            UnsafeGaspSev = listingStandard.Slider(UnsafeGaspSev, 5f, 100f);
+            UnsafeGaspSev = listingStandard.SliderLabeled("Brrr.UnsafeGaspSev".Translate() + "  " + UnsafeGaspSev,
+                UnsafeGaspSev, 1f, 100f, tooltip: "Brrr.UnsafeGaspSevTip".Translate());
             listingStandard.Gap(separator);
         }
 
         if (UseOoh)
         {
-            listingStandard.Label("Brrr.OohSev".Translate() + "  " + OohSev);
-            OohSev = listingStandard.Slider(OohSev, 10f, 100f);
+            OohSev = listingStandard.SliderLabeled("Brrr.OohSev".Translate() + "  " + OohSev, OohSev, 1f, 100f,
+                tooltip: "Brrr.OohSevTip".Translate());
             listingStandard.Gap(separator);
         }
 
         if (AllowJoy)
         {
-            listingStandard.Label("Brrr.JoySev".Translate() + "  " + JoySev);
-            JoySev = listingStandard.Slider(JoySev, 5f, 100f);
+            JoySev = listingStandard.SliderLabeled("Brrr.JoySev".Translate() + "  " + JoySev, JoySev, 1f, 100f,
+                tooltip: "Brrr.JoySevTip".Translate());
             listingStandard.Gap(separator);
         }
 
@@ -105,8 +131,9 @@ public class Settings : ModSettings
             UnsafeBrrrSev = 20f;
             UnsafePhewSev = 20f;
             UnsafeYukSev = 10f;
+            UnsafeRedSev = 10f;
             UnsafeGaspSev = 10f;
-            OohSev = 12.5f;
+            OohSev = 20f;
             JoySev = 12.5f;
         }
 
