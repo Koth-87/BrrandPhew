@@ -5,7 +5,8 @@
 Update of peladors mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2000287305
 
-- If using Odyssey DLC, the Gasp-reaction will now make pawns seek shelter from Vacuum exposure
+- If using Odyssey DLC, the Gasp-reaction will make pawns seek shelter from Vacuum exposure
+- If using Anomaly DLC, the Red-reaction will make pawns seek shelter from Blood Rain exposure
 
 ![Image](https://img.litet.net/logos/Notice.png)
 	

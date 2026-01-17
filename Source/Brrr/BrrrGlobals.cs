@@ -70,6 +70,11 @@ public class BrrrGlobals
                 return false;
             }
 
+            if (chkcell.IsPolluted(map))
+            {
+                return false;
+            }
+
             if (!tempRange.Includes(chkcell.GetRoom(map).Temperature))
             {
                 return false;

@@ -64,7 +64,7 @@ public class JobGiver_Red : ThinkNode_JobGiver
             ? RestUtility.FindBedFor(pawn)
             : RestUtility.FindBedFor(pawn, pawn, false, true);
 
-        if (FindBed != null && FindBed.Position.Roofed(pawn.Map) &&
+        if (FindBed != null && FindBed.Position.Roofed(pawn.Map) && !FindBed.Position.IsPolluted(pawn.Map) &&
             pawn.ComfortableTemperatureRange().Includes(FindBed.GetRoom().Temperature))
         {
             RedBed = FindBed;

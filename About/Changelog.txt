@@ -1,5 +1,8 @@
 # Changelog for BrrandPhew
 
+1.6.5 - Pawns should now no longer try to rest on polluted cells
+
+
 1.6.4 - Added support for Blood Rain in Anomaly. Updated the mod-settings.
 Used DeepL to update translations for ChineseSimplified, French, German
 

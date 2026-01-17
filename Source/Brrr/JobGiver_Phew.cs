@@ -61,7 +61,7 @@ public class JobGiver_Phew : ThinkNode_JobGiver
 
         Thing BrrrBed = null;
         var FindBed = RestUtility.FindBedFor(pawn, pawn, false, true);
-        if (FindBed != null && !FindBed.GetRoom().PsychologicallyOutdoors &&
+        if (FindBed != null && !FindBed.GetRoom().PsychologicallyOutdoors && !FindBed.Position.IsPolluted(pawn.Map) &&
             pawn.ComfortableTemperatureRange().Includes(FindBed.GetRoom().Temperature))
         {
             BrrrBed = FindBed;

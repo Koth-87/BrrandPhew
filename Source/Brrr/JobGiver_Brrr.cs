@@ -63,7 +63,7 @@ public class JobGiver_Brrr : ThinkNode_JobGiver
         Thing FindBed = Settings.AllowUnsafeAreas
             ? RestUtility.FindBedFor(pawn)
             : RestUtility.FindBedFor(pawn, pawn, false, true);
-        if (FindBed != null && !FindBed.GetRoom().PsychologicallyOutdoors &&
+        if (FindBed != null && !FindBed.GetRoom().PsychologicallyOutdoors && !FindBed.Position.IsPolluted(pawn.Map) &&
             pawn.ComfortableTemperatureRange().Includes(FindBed.GetRoom().Temperature))
         {
             BrrrBed = FindBed;
