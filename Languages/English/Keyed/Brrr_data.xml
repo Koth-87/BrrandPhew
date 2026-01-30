@@ -21,7 +21,7 @@
   <Brrr.UseOoh>Enable Ooh (Cabin Fever reaction):</Brrr.UseOoh>
   <Brrr.OohSev>Percentage of Cabin Fever to trigger [default 20%]:</Brrr.OohSev>
   <Brrr.OohSevTip>Default is [20%]</Brrr.OohSevTip>
-  <Brrr.AllowJoy>Allow Joy activities during recovery:</Brrr.AllowJoy>
+  <Brrr.AllowJoy>Allow recreational activities during recovery:</Brrr.AllowJoy>
   <Brrr.JoySev>Percentage when joy is required:</Brrr.JoySev>
   <Brrr.JoySevTip>Default is [12.5%]</Brrr.JoySevTip>
   <Brrr.ApplyAnimals>Enable relevant reactions for colony animals:</Brrr.ApplyAnimals>

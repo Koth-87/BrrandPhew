@@ -1,5 +1,8 @@
 # Changelog for BrrandPhew
 
+1.6.6 - Clearer mod-option, fixed german translation via TheStrongWWill
+
+
 1.6.5 - Pawns should now no longer try to rest on polluted cells
 
 
