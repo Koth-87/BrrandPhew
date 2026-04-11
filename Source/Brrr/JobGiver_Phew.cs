@@ -59,6 +59,18 @@ public class JobGiver_Phew : ThinkNode_JobGiver
             return null;
         }
 
+        // Check for swimming option (Odyssey DLC)
+        if (pawn.Faction == Faction.OfPlayer &&
+            ModLister.GetActiveModWithIdentifier("ludeon.rimworld.royalty", true) != null)
+        {
+            var waterCell = FindNearestWaterCell(pawn);
+            if (waterCell.IsValid)
+            {
+                var job = new Job(BrrrJobDefOf.Brrr_PhewRecovery, IntVec3.Invalid, waterCell);
+                return job;
+            }
+        }
+
         Thing BrrrBed = null;
         var FindBed = RestUtility.FindBedFor(pawn, pawn, false, true);
         if (FindBed != null && !FindBed.GetRoom().PsychologicallyOutdoors && !FindBed.Position.IsPolluted(pawn.Map) &&
@@ -76,5 +88,30 @@ public class JobGiver_Phew : ThinkNode_JobGiver
         var region = BrrrGlobals.BrrrClosestRegionWithinTemperatureRange(pawn.Position, pawn.Map, tempRange,
             TraverseParms.For(pawn));
         return region != null ? new Job(BrrrJobDefOf.Brrr_PhewRecovery, region.RandomCell) : null;
+    }
+
+    private static IntVec3 FindNearestWaterCell(Pawn pawn)
+    {
+        var map = pawn.Map;
+        var maxDistance = 30; // Search radius for water
+
+        for (var i = 0; i < maxDistance; i++)
+        {
+            var cells = GenRadial.RadialCellsAround(pawn.Position, i, true);
+            foreach (var cell in cells)
+            {
+                if (!cell.InBounds(map))
+                {
+                    continue;
+                }
+
+                if (cell.GetTerrain(map).HasTag("Water") && pawn.CanReach(cell, PathEndMode.OnCell, Danger.None))
+                {
+                    return cell;
+                }
+            }
+        }
+
+        return IntVec3.Invalid;
     }
 }

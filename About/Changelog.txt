@@ -1,5 +1,8 @@
 # Changelog for BrrandPhew
 
+1.6.7 - With Odyssey active, pawns will now also swim to cool down if possible
+
+
 1.6.6 - Clearer mod-option, fixed german translation via TheStrongWWill
 
 

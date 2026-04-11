@@ -1,52 +1,53 @@
-# GitHub Copilot Instructions for the RimWorld Mod: Brrr and Phew (Continued)
+# GitHub Copilot Instructions
 
 ## Mod Overview and Purpose
 
-The "Brrr and Phew (Continued)" mod is an update from the original by Pelador. Its primary purpose is to enhance the game's AI to help colonists avoid the negative effects of environmental conditions such as hypothermia, heatstroke, toxic buildup, and cabin fever. The mod introduces a proactive approach by allowing early responses to these conditions, thus improving the overall survival experience and quality of life for colonists within RimWorld.
+**Mod Name**: Brrr and Phew (Continued)
+
+This mod is an update of the original mod by pelador, designed to enhance the AI behavior of colony pawns in RimWorld to prevent negative health effects due to environmental conditions. The mod introduces preventative AI behaviors to manage hypothermia, heatstroke, toxic buildup, cabin fever, vacuum exposure (Odyssey DLC), and blood rain exposure (Anomaly DLC). The purpose is to improve the longevity and well-being of both colonists and animals in varying environmental situations.
 
 ## Key Features and Systems
 
-### Environmental Management
-- **Configurable Early Response:** React to initial buildup of conditions (hypothermia, heatstroke, toxic buildup) at a customizable percentage (10%-30%) instead of the default 35% from vanilla.
-- **Rest and Recovery:** Pawns will seek out their owned bed, an unoccupied bed, or even the floor to recover from environmental conditions, ensuring that recovery does not require a full sleep cycle.
-- **Toxic Buildup Management:** The "Yuk" feature allows for recovery from toxic buildup with adjustable safety levels and potentially longer recovery times than temperature-related conditions.
-
-### Unique Pawn Behaviors
-- **Cabin Fever Relief ("Ooh")**: Provides pawns with cabin fever the opportunity to take outdoor breaks, either through wandering or sky watching, which contributes to their "outdoors" need without fully converting the activities into standard joy activities.
-
-### Animal Behavior
-- **Animal Mirroring:** Colony animals also adopt reactive behaviors to environmental conditions ("Brrr", "Phew", and "Yuk"), providing they have accessible areas to retreat to.
-
-### Mod Options
-- **Toggleable Conditions:** Enable or disable AI behavior for each condition and set the recovery initiation threshold.
-- **Joy Activity Configuration:** Decide the allowance and level of joy activities during recovery periods.
-- **Animal Behavior Settings:** Enable or disable mirrored animal behavior for environmental reactions.
-
-### Compatibility and Support
-- **Safe to Add/Remove:** This mod can be added or removed from save games as it modifies only thought and job behavior.
-- **Multiplayer Support:** Offered in beta form.
+- **Early Alert System**: Configurable alerts for hypothermia and heatstroke trigger between 10% and 30% build-up, allowing colonists to take preventative measures before severe damage occurs.
+- **Pawns Reactions**: Colonists will retreat to a safe zone to recover from conditions like hypothermia ("Brrr") and heatstroke ("Phew"), and more unique reactions for toxic buildup ("Yuk") and cabin fever ("Ooh").
+- **Animal Reactions**: Animals reflect similar behaviors to pawns when facing harsh environmental situations.
+- **Modular Options**: Players can toggle specific AI behaviors, set thresholds, and decide on interferences caused by joy activities.
+- **Integration with DLCs**: Includes unique reactions for scenarios in the Odyssey and Anomaly DLCs.
+- **Compatibility**: Functions without causing conflicts with psychology or mental break mods, and can be safely added or removed from existing saves.
 
 ## Coding Patterns and Conventions
 
-- The project follows typical C# conventions, such as PascalCase for class names and methods.
-- Class names are descriptive of their purpose, e.g., `JobDriver_BrrrRecovery` indicates a driver handling the Brrr recovery process.
+- **Class Structures**: The mod project is organized into classes that are clear in responsibility, e.g., `BrrrGlobals`, `Controller`, and `Settings`.
+- **Job Drivers and Think Nodes**: Each response type, such as "Brrr" or "Gasp", has corresponding job drivers (e.g., `JobDriver_BrrrRecovery`) and thinkers (e.g., `ThinkNode_CanBrrr`) to manage pawn behaviors.
+- **Static Classes**: Used for defining jobs, such as `BrrrJobDefOf`.
+- **Internal Consistency**: Use C# naming conventions for methods, properties, and file names to ensure readability and maintainability.
 
-### XML Integration
+## XML Integration
 
-- XML files should be used to configure mod options accessible in-game and to define any necessary game data related to job definitions and AI behavior.
+- **XML Defining Behaviors**: Set up pawn and animal behavior responses through XML definitions that integrate seamlessly with C# logic.
+- **Mod Settings**: Use XML to configure mod options in the game, providing a user-friendly interface for managing mod behavior.
 
-### Harmony Patching
+## Harmony Patching
 
-- If required, use Harmony for non-invasive patches to methods in the base game, ensuring the mod operates seamlessly alongside existing game functionality.
+- **Patch Usage**: Apply Harmony patches to alter base game behavior subtly without direct modification of the original game code. Ensures compatibility and future-proofing.
+- **Common Use Cases**: Modify how jobs are queued and interrupted in response to environmental stimuli.
 
 ## Suggestions for Copilot
 
-1. **Pattern Recognition:** Use Copilot for generating repetitive methods, especially when creating new condition checks or job drivers.
-   
-2. **Harmony Setup:** Utilize Copilot to scaffold Harmony patches, including methods like `Prefix` and `Postfix` to augment base game methods where necessary.
+To effectively use GitHub Copilot within this mod project:
 
-3. **XML Data Management:** Auto-generate XML templates for new condition settings and mod options using Copilot.
+- **Context Awareness**: Provide Copilot with context statements for specific files or classes, e.g., "Generate a job driver for `JobDriver_XYRecovery` similar to `JobDriver_BrrrRecovery`".
+- **Test Generations**: Use Copilot to generate RimWorld test scenarios or placeholders for hypothetical features.
+- **Repeat Patterns**: Let Copilot extrapolate existing patterns, like additional thinker or job definitions for new conditions.
+- **Focus on Integration**: Use Copilot to generate methods integrating XML definitions with C# logic, ensuring accuracy in syntax and logic flow.
+- **Validation and Testing**: Encourage generation of unit tests for new features Copilot helps create.
 
-4. **ThinkNode and JobGiver Logic:** Employ Copilot to assist in writing the logic-heavy conditional checks within ThinkNodes and job assignments.
+Implement these guidelines to effectively guide GitHub Copilot in enhancing the development process of your RimWorld mods. Make sure to continuously review and adjust the code generated by Copilot to fit your specific needs and maintain the integrity of your project's structure.
 
-By following these instructions, contributors can effectively navigate the codebase and utilize GitHub Copilot to aid development and maintenance of the "Brrr and Phew (Continued)" RimWorld mod.
+## Project Solution Guidelines
+- Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
+- Use these in-solution XML files as the primary files for reference and modification.
+- The .github/copilot-instructions.md file is included in the solution under the .github solution folder, so it should be read/modified from within the solution instead of using paths outside the solution. Update this file once only, as it and the parent-path solution reference point to the same file in this workspace.
+- When making functional changes in this mod, ensure the documented features stay in sync with implementation; use the in-solution .github copy as the primary file.
+- In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
+- For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.

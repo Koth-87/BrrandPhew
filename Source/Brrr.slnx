@@ -6,4 +6,18 @@
     <BuildType Name="Release" />
   </Configurations>
   <Project Path="Brrr/Brrr.csproj" />
+  <Folder Name="/XML/About/">
+    <File Path="../About/about.xml" />
+  </Folder>
+  <Folder Name="/XML/Languages/English/Keyed/">
+    <File Path="../Languages/English/Keyed/Brrr_data.xml" />
+  </Folder>
+  <Folder Name="/XML/Defs/">
+    <File Path="../Defs/Defs_Brrr.xml" />
+    <File Path="../Defs/Defs_Gasp.xml" />
+    <File Path="../Defs/Defs_Ooh.xml" />
+    <File Path="../Defs/Defs_Phew.xml" />
+    <File Path="../Defs/Defs_Red.xml" />
+    <File Path="../Defs/Defs_Yuk.xml" />
+  </Folder>
 </Solution>
