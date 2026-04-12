@@ -15,6 +15,7 @@
   <Brrr.UseRed>Enable Red (Bloodrage reaction):</Brrr.UseRed>
   <Brrr.UnsafeRedSev>Percentage of Bloodrage to trigger:</Brrr.UnsafeRedSev>
   <Brrr.UnsafeRedSevTip>Default is [10%]</Brrr.UnsafeRedSevTip>
+  <Brrr.UseGaspCE>Also react on Combat Extended smoke inhalation:</Brrr.UseGaspCE>
   <Brrr.UseGasp>Enable Gasp (Oxygen Starvation/Vacuum exposure reaction):</Brrr.UseGasp>
   <Brrr.UnsafeGaspSev>Percentage of Oxygen Starvation/Vacuum exposure to trigger:</Brrr.UnsafeGaspSev>
   <Brrr.UnsafeGaspSevTip>Default is [10%]</Brrr.UnsafeGaspSevTip>

@@ -5,6 +5,7 @@ namespace Brrr;
 
 public class Settings : ModSettings
 {
+    public static bool UseGaspCE;
     public static float UnsafeRedSev = 10f;
     public static bool UseRed = ModLister.AnomalyInstalled;
     public static bool UseBrrr = true;
@@ -37,6 +38,8 @@ public class Settings : ModSettings
 
     private static readonly float separator = 7f;
 
+    private static readonly bool CEActive = ModLister.GetActiveModWithIdentifier("CETeam.CombatExtended", true) != null;
+
     public static void DoWindowContents(Rect canvas)
     {
         var listingStandard = new Listing_Standard
@@ -51,6 +54,11 @@ public class Settings : ModSettings
         listingStandard.CheckboxLabeled("Brrr.UseYuk".Translate(), ref UseYuk);
         listingStandard.Gap(separator);
         listingStandard.CheckboxLabeled("Brrr.UseGasp".Translate(), ref UseGasp);
+        if (UseGasp && CEActive)
+        {
+            listingStandard.CheckboxLabeled("Brrr.UseGaspCE".Translate(), ref UseGaspCE);
+        }
+
         listingStandard.Gap(separator);
         listingStandard.CheckboxLabeled("Brrr.UseOoh".Translate(), ref UseOoh);
         listingStandard.Gap(separator);
@@ -158,6 +166,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref UseYuk, "UseYuk", true);
         Scribe_Values.Look(ref UnsafeYukSev, "UnsafeYukSev", 10f);
         Scribe_Values.Look(ref UseGasp, "UseGasp", true);
+        Scribe_Values.Look(ref UseGaspCE, "UseGaspCE");
         Scribe_Values.Look(ref UnsafeGaspSev, "UnsafeGaspSev", 10f);
         Scribe_Values.Look(ref UseOoh, "UseOoh", true);
         Scribe_Values.Look(ref OohSev, "OohSev", 20f);

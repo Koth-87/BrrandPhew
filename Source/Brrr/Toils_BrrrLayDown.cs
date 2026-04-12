@@ -154,8 +154,11 @@ public static class Toils_BrrrLayDown
             var exposureHed =
                 actor.health.hediffSet.GetFirstHediffOfDef(
                     DefDatabase<HediffDef>.GetNamed("VacuumExposure", false));
+            var ceSmokeHed =
+                actor.health.hediffSet.GetFirstHediffOfDef(
+                    DefDatabase<HediffDef>.GetNamed("BrrrSmokeInhalation", false));
             return hypoHed == null && heatHed == null && toxHed == null && breathHed == null && exposureHed == null &&
-                   redHed == null;
+                   redHed == null && ceSmokeHed == null;
         });
         layDown.AddFinishAction(delegate
         {

@@ -46,4 +46,5 @@
   <Brrr.UnsafeRedSevTip>La valeur par défaut est [10%]</Brrr.UnsafeRedSevTip>
   <Brrr.RedRecoverSleeping>sommeil, récupération (accumulation de sang).</Brrr.RedRecoverSleeping>
   <Brrr.RedRecoverResting>repos, récupération (accumulation de sang).</Brrr.RedRecoverResting>
+  <Brrr.UseGaspCE>Réagit également sur l'inhalation de fumée en Combat Extended :</Brrr.UseGaspCE>
 </LanguageData>

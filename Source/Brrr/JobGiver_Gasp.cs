@@ -50,8 +50,9 @@ public class JobGiver_Gasp : ThinkNode_JobGiver
 
         var oxStarve = DefDatabase<HediffDef>.GetNamed("OxygenStarvation", false);
         var vacExposure = DefDatabase<HediffDef>.GetNamed("VacuumExposure", false);
+        var ceSmokeInhalation = DefDatabase<HediffDef>.GetNamed("SmokeInhalation", false);
 
-        if (oxStarve == null && vacExposure == null)
+        if (oxStarve == null && vacExposure == null && ceSmokeInhalation == null)
         {
             return null;
         }
@@ -69,6 +70,15 @@ public class JobGiver_Gasp : ThinkNode_JobGiver
         {
             var exposure = pawn.health.hediffSet.GetFirstHediffOfDef(vacExposure);
             if (exposure == null || exposure.Severity < Settings.UnsafeGaspSev / 100f)
+            {
+                return null;
+            }
+        }
+
+        if (ceSmokeInhalation != null)
+        {
+            var smoke = pawn.health.hediffSet.GetFirstHediffOfDef(ceSmokeInhalation);
+            if (smoke == null || !Settings.UseGaspCE || smoke.Severity < Settings.UnsafeGaspSev / 100f)
             {
                 return null;
             }
